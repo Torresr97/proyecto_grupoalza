@@ -383,27 +383,22 @@
 		
 	</script>
 
-<script >
+<script type="text/javascript">
 		$(document.ready(function(){
-			$('#btnguardar').click(function(){
-				var regitro =$('#frmregistroequipos').serialize();
-				alert(registro);		
-						return false;
+			$("#btnguardar").on(click,function(){
+				
 				$.ajax({
 					type:"POST",
 					url:"insertardatos.php",
-					data: registro,
-					success:function(r){
-						if(r==1){
-							alert("agregado con exito");
-						}else 
-						alert("falla con exito");
-
+					data: $("#frmregistroequipos").serialize(),
+					success:function(data){
+						alert(data);
 					}
+						
 				});
-				return false:
+				return false;
 			});
-		});
+		}));
 	</script>
 
 	<!-- jQuery -->
