@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Gentelella Alela! | </title>
-
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 	<!-- Bootstrap -->
 	<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Font Awesome -->
@@ -156,7 +156,7 @@
 						<!--Formulario-->
 						<div class="x_content">
 							<br />
-							<form id="frmregistroequipos" method="POST" class="form-horizontal form-label-left">
+							<form id="formularioregistro" method="POST" action="insertardatos.php" class="form-horizontal form-label-left">
 
 							</div>
 							<div class="form-group row">
@@ -180,18 +180,18 @@
 						
 							<!--FORMULARIO PARA DESKTOP-->
 
-							<div id="formdesktopylaptop">
+							<div id="desktop">
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="marca" type="text"  class="form-control" placeholder="Marca">
+										<input id="dmarca" name="dmarca"  type="text"  class="form-control" placeholder="Marca">
 									</div>
 								</div>
 
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="modelo"  type="text" class="form-control" placeholder="Modelo">
+										<input id="dmodelo" name="dmodelo" type="text" class="form-control" placeholder="Modelo">
 									</div>
 								</div>
 
@@ -199,7 +199,7 @@
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="servicetag" type="text" class="form-control" placeholder="Service Tag">
+										<input id="dservicetag" name="dservicetag" type="text" class="form-control" placeholder="Service Tag">
 									</div>
 								</div>
 
@@ -207,21 +207,21 @@
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">RAM</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input  name="ram" type="number" class="form-control" placeholder="Ram">
+										<input  id="dram" name="dram" type="number" class="form-control" placeholder="Ram">
 									</div>
 								</div>
 
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Disco Duro</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="discoduro" type="number" class="form-control" placeholder="Disco Duro">
+										<input id="ddiscoduro" name="ddiscoduro" type="number" class="form-control" placeholder="Disco Duro">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 ">
-										<textarea name="descripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
+										<textarea id="ddescripcion" name="ddescripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
 									</div>
 								</div>
 
@@ -229,32 +229,83 @@
 							</div>
 							<!--FORMULARIO PARA DESKTOP-->
 
-
-							<!--FORMULARIO PARA CELULAR-->
-							<div id="celular">
+								<!--FORMULARIO PARA LAPTOP-->
+								<div id="laptop">
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="marca" type="text" class="form-control" placeholder="Marca">
+										<input id="lmarca" name="lmarca"  type="text"  class="form-control" placeholder="Marca">
 									</div>
 								</div>
+
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="modelo" type="text" class="form-control" placeholder="Modelo">
+										<input id="lmodelo" name="lmodelo" type="text" class="form-control" placeholder="Modelo">
 									</div>
 								</div>
+
+
 								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">IMEI</label>
+									<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="imei" type="number" class="form-control" placeholder="Imei">
+										<input id="lservicetag" name="lservicetag" type="text" class="form-control" placeholder="Service Tag">
+									</div>
+								</div>
+
+
+								<div class="form-group row ">
+									<label class="control-label col-md-3 col-sm-3 ">RAM</label>
+									<div class="col-md-5 col-sm-5 ">
+										<input  id="lram" name="lram" type="number" class="form-control" placeholder="Ram">
+									</div>
+								</div>
+
+								<div class="form-group row ">
+									<label class="control-label col-md-3 col-sm-3 ">Disco Duro</label>
+									<div class="col-md-5 col-sm-5 ">
+										<input id="ldiscoduro" name="ldiscoduro" type="number" class="form-control" placeholder="Disco Duro">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 ">
-										<textarea name="descripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
+										<textarea id="ldescripcion" name="ldescripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
+									</div>
+								</div>
+
+
+							</div>
+
+
+
+<!--FORMULARIO PARA LAPTOP-->
+							<!--FORMULARIO PARA CELULAR-->
+							<div id="celular">
+								<div class="form-group row ">
+									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
+									<div class="col-md-5 col-sm-5 ">
+										<input id="cmarca" type="text" class="form-control" placeholder="Marca">
+									</div>
+								</div>
+								<div class="form-group row ">
+									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
+									<div class="col-md-5 col-sm-5 ">
+										<input id="cmodelo" type="text" class="form-control" placeholder="Modelo">
+									</div>
+								</div>
+								<div class="form-group row ">
+									<label class="control-label col-md-3 col-sm-3 ">IMEI</label>
+									<div class="col-md-5 col-sm-5 ">
+										<input id="cimei" name="cimei" type="number" class="form-control" placeholder="Imei">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
+									</label>
+									<div class="col-md-9 col-sm-9 ">
+										<textarea id="cdescripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
 									</div>
 								</div>
 							</div>
@@ -265,26 +316,26 @@
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="marca" type="text" class="form-control" placeholder="Marca">
+										<input id="tmarca" type="text" class="form-control" placeholder="Marca">
 									</div>
 								</div>
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="modelo" type="text" class="form-control" placeholder="Modelo">
+										<input id="tmodelo" type="text" class="form-control" placeholder="Modelo">
 									</div>
 								</div>
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">IMEI</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="imei" type="number" class="form-control" placeholder="Imei">
+										<input id="timei" type="number" class="form-control" placeholder="Imei">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 ">
-										<textarea name="descripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
+										<textarea id="tdescripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
 									</div>
 								</div>
 							</div>
@@ -295,26 +346,26 @@
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Nombre del Equipo</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="nombreequipo" type="text" class="form-control" placeholder="Nombre del Equipo">
+										<input id="onombreequipo" type="text" class="form-control" placeholder="Nombre del Equipo">
 									</div>
 								</div>
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="marca" type="text" class="form-control" placeholder="Marca">
+										<input id="omarca" type="text" class="form-control" placeholder="Marca">
 									</div>
 								</div>
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input name="modelo" type="text" class="form-control" placeholder="Modelo">
+										<input id="omodelo" type="text" class="form-control" placeholder="Modelo">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 ">
-										<textarea name="descripcion"  class="form-control" rows="3" placeholder="Descripcion"></textarea>
+										<textarea id="odescripcion"  class="form-control" rows="3" placeholder="Descripcion"></textarea>
 									</div>
 								</div>
 							</div>
@@ -329,10 +380,13 @@
 										<button id="btnguardar" type="submit" class="btn btn-success">Submit</button>
 									</div>
 								</div>
-
+								<div id=respuesta></div>
 							</form>
 
+
 			</div>
+
+			
 		
 			<!-- /page content -->
 
@@ -347,59 +401,49 @@
 											id = document.getElementById("tipoequipo").value;
 											
 											if (id == "desktop") {
-											$("#formdesktopylaptop").show();
+											$("#desktop").show();
+											$("#laptop").hide();
 											$("#celular").hide();
 											$("#telefono").hide();
 											$("#otros").hide();
 											}
 											
 											else if (id == "laptop") {
-											$("#formdesktopylaptop").show();
+											$("#laptop").show();
+											$("#desktop").hide();
 											$("#celular").hide();
 											$("#telefono").hide();
 											$("#otros").hide();
 										
 											}
 											else if(id == "celular") {
-											$("#formdesktopylaptop").hide();
+												$("#laptop").hide();
+											$("#desktop").hide();
 											$("#celular").show();
 											$("#telefono").hide();
 											$("#otros").hide();
 										
 											}else if(id=="telefono"){
-												$("#formdesktopylaptop").hide();
+												$("#laptop").hide();
+											$("#desktop").hide();
 											$("#celular").hide();
 											$("#telefono").show();
 											$("#otros").hide();
 											}else if(id=="otros"){
-												$("#formdesktopylaptop").hide();
+												$("#laptop").hide();
+											$("#desktop").hide();
 											$("#celular").hide();
 											$("#telefono").hide();
 											$("#otros").show();
 											}
 										}
-									
+						
+										
 
 		
 	</script>
 
-<script type="text/javascript">
-		$(document.ready(function(){
-			$("#btnguardar").on(click,function(){
-				
-				$.ajax({
-					type:"POST",
-					url:"insertardatos.php",
-					data: $("#frmregistroequipos").serialize(),
-					success:function(data){
-						alert(data);
-					}
-						
-				});
-				return false;
-			});
-		}));
-	</script>
+
 
 	<!-- jQuery -->
 	<script src="../vendors/jquery/dist/jquery.min.js"></script>
