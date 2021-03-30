@@ -156,13 +156,13 @@
 						<!--Formulario-->
 						<div class="x_content">
 							<br />
-							<form id="formularioregistro" method="POST" action="insertardatos.php" class="form-horizontal form-label-left">
-
+							<form id="formularioregistro" method="POST"  action="php/insertardatos.php" class="form-horizontal form-label-left">
+						
 							</div>
 							<div class="form-group row">
 								<label class="control-label col-md-3 col-sm-3 ">Tipo-Equipo</label>
 								<div class="col-md-5 col-sm-5 ">
-									<select class="form-control" name="tipoequipo" id="tipoequipo" onclick="SelectRegistro();">
+									<select  class="form-control" name="tipoequipo" id="tipoequipo" onclick="SelectRegistro();">
 										<option value="desktop" >Desktop</option>
 										<option value="laptop">Laptop</option>
 										<option value="celular">Celular</option>
@@ -396,53 +396,12 @@
 
 	
 
-	<script>
-			function SelectRegistro(){
-											id = document.getElementById("tipoequipo").value;
-											
-											if (id == "desktop") {
-											$("#desktop").show();
-											$("#laptop").hide();
-											$("#celular").hide();
-											$("#telefono").hide();
-											$("#otros").hide();
-											}
-											
-											else if (id == "laptop") {
-											$("#laptop").show();
-											$("#desktop").hide();
-											$("#celular").hide();
-											$("#telefono").hide();
-											$("#otros").hide();
-										
-											}
-											else if(id == "celular") {
-												$("#laptop").hide();
-											$("#desktop").hide();
-											$("#celular").show();
-											$("#telefono").hide();
-											$("#otros").hide();
-										
-											}else if(id=="telefono"){
-												$("#laptop").hide();
-											$("#desktop").hide();
-											$("#celular").hide();
-											$("#telefono").show();
-											$("#otros").hide();
-											}else if(id=="otros"){
-												$("#laptop").hide();
-											$("#desktop").hide();
-											$("#celular").hide();
-											$("#telefono").hide();
-											$("#otros").show();
-											}
-										}
-						
-										
 
+	<script type="text/javascript" src="funciones.js">
+		function SelectRegistro();
+			
 		
-	</script>
-
+</script>
 
 
 	<!-- jQuery -->

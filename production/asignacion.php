@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+include("php\conexion.php");
+?>
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -209,7 +212,7 @@
                   <div class="x_content">
 
                   <div style="padding-bottom: 20px !important"  class="col-md-2 col-sm-2 ">
-									<select  class="form-control" name="tipoequipo" id="tipoequipo" onclick="SelectRegistro();">
+									<select  method="POST"  class="form-control" name="tipoequipo" id="tipoequipo" onclick="SelectRegistro();">
 										<option value="desktop" >Desktop</option>
 										<option value="laptop">Laptop</option>
 										<option value="celular">Celular</option>
@@ -226,48 +229,37 @@
                       <thead>
                         <tr>
                           <th style="width: 1%">#</th>
-                          <th style="width: 20%">Nombre Equipo</th>
-                          <th>Team Members</th>
-                          <th>Project Progress</th>
-                          <th>Status</th>
-                          <th style="width: 20%">#Edit</th>
+                          <th style="width: 20%">*</th>
+                          <th>*</th>
+                          <th>*</th>
+                          <th>*</th>
+                          <th style="width: 20%">*</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>#</td>
                           <td>
-                            <a>Pesamakini Backend UI</a>
+                            <a>vacio</a>
                             <br />
-                            <small>Created 01.01.2015</small>
+                            <small>vacio</small>
                           </td>
                           <td>
                             <ul class="list-inline">
                               <li>
-                                <img src="images/user.png" class="avatar" alt="Avatar">
-                              </li>
-                              <li>
-                                <img src="images/user.png" class="avatar" alt="Avatar">
-                              </li>
-                              <li>
-                                <img src="images/user.png" class="avatar" alt="Avatar">
-                              </li>
-                              <li>
-                                <img src="images/user.png" class="avatar" alt="Avatar">
+                             vacio
                               </li>
                             </ul>
                           </td>
                           <td class="project_progress">
-                            <div class="progress progress_sm">
-                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
-                            </div>
-                            <small>57% Complete</small>
+                          
+                            <small>vacio</small>
                           </td>
                           <td>
-                            <button type="button" class="btn btn-success btn-xs">Success</button>
+                         
                           </td>
                           <td>
-                            <a href="#" class="btn btn-success btn-xs"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Asignar </a>
+                            <a  href="#"  class="btn btn-success btn-xs"> <span  class="glyphicon glyphicon-plus" aria-hidden="true"></span>Asignar </a>
                           
                           </td>
                         </tr>
@@ -286,6 +278,13 @@
           </div>
         </div>
         <!-- /page content -->
+
+        <!-- modal -->
+
+
+        <!-- modal -->
+
+
 
         <!-- footer content -->
         <footer>
@@ -311,5 +310,29 @@
     
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+
+    $( "#target" ).submit(function( event ) {
+      
+        var username = $("#name").val();
+        var password = $("#password").val();
+        if(username=="" || password==""){
+            $('#myModal').modal('show');
+            event.preventDefault();//Esto es para cancelar el envio
+        }else{
+            alert( "Los datos se enviaran!." );
+        }  
+    });
+    });
+    
+
+
+    function SelectRegistro(){
+											
+										}
+    
+    </script>
   </body>
 </html>

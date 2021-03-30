@@ -22,7 +22,7 @@ if( $stmt === false ) {
      die( print_r( sqlsrv_errors(), true));
 }else 
 echo'<script type="text/javascript">
-window.location.href="form.php";
+window.location.href="../form.php";
     alert("Datos Ingresados");
     </script>';
 
