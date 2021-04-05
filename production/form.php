@@ -163,6 +163,7 @@
 								<label class="control-label col-md-3 col-sm-3 ">Tipo-Equipo</label>
 								<div class="col-md-5 col-sm-5 ">
 									<select  class="form-control" name="tipoequipo" id="tipoequipo" onclick="SelectRegistro();">
+									<option value="nulo" >Seleccione un Equipo</option>
 										<option value="desktop" >Desktop</option>
 										<option value="laptop">Laptop</option>
 										<option value="celular">Celular</option>
