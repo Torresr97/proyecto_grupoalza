@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("conexion1.php");
 
 $nomreequpo=$_POST['tipoequipo'];
 if($nomreequpo == 'desktop'){
@@ -11,7 +11,7 @@ if($nomreequpo == 'desktop'){
     $descrip=$_POST['ddescripcion'];
 
          
-    $sql = "INSERT INTO equipos (ciudad,nombreequipo,marca_desktop,modelo_desktop,servicetag_desktop,ram_desktop,discoduro_desktop,descripcion_desktop) VALUES (?,?, ?,?,?,?,?,?)";
+    $sql = "INSERT INTO inventario_inventario (ciudad,nombreequipo,marcca_desktop,modelo_desktop,servicetag_desktop,ram_desktop,discoduro_desktop,descripcion_desktop) VALUES (?,?, ?,?,?,?,?,?)";
 
    
   

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-include("php\conexion.php");
+include("php\conexion1.php");
 ?>
 <html lang="en">
   <head>
@@ -209,69 +209,32 @@ include("php\conexion.php");
                   
                     <div class="clearfix"></div>
                   </div>
+
+
+                
                   <div class="x_content">
 
-                  <div style="padding-bottom: 20px !important"  class="col-md-2 col-sm-2 ">
-									<select  method="POST"  class="form-control" name="tipoequipo" id="tipoequipo" onclick="SelectRegistro();">
-										<option value="desktop" >Desktop</option>
+                   <form method="POST" >
+                     <div style="padding-bottom: 20px !important"  class="col-md-4 col-sm-4 ">
+                     <select  class="form-control" name="tipoequipo" id="tipoequipo" >
+                     <option value="nulo" >Seleccione un Equipo</option>
+                  	<option value="desktop" >Desktop</option>
 										<option value="laptop">Laptop</option>
 										<option value="celular">Celular</option>
 										<option value="telefono">Telefono</option>
-										<option value="otros">Otros</option>
-									
-									</select>
+										<option value="otros">Otros</option>	
+                    </select>
+                   
+                      </div>
 
-									
-								</div>
-
-                    <!-- start project list -->
-                    <table class="table table-striped projects">
-                      <thead>
-                        <tr>
-                          <th style="width: 1%">#</th>
-                          <th style="width: 20%">*</th>
-                          <th>*</th>
-                          <th>*</th>
-                          <th>*</th>
-                          <th style="width: 20%">*</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>#</td>
-                          <td>
-                            <a>vacio</a>
-                            <br />
-                            <small>vacio</small>
-                          </td>
-                          <td>
-                            <ul class="list-inline">
-                              <li>
-                             vacio
-                              </li>
-                            </ul>
-                          </td>
-                          <td class="project_progress">
-                          
-                            <small>vacio</small>
-                          </td>
-                          <td>
-                         
-                          </td>
-                          <td>
-                            <a  href="#"  class="btn btn-success btn-xs"> <span  class="glyphicon glyphicon-plus" aria-hidden="true"></span>Asignar </a>
-                          
-                          </td>
-                        </tr>
-                       
-                        
-                     
-                
-                      </tbody>
-                    </table>
-                    <!-- end project list -->
+                      <button  type="submit" class="btn btn-info" onKeyUp="mostrartabla()">Buscar</button></form>
+                    <div id="mostrardatos">
+                    
+                    </div>
 
                   </div>
+             
+                 
                 </div>
               </div>
             </div>
@@ -311,28 +274,21 @@ include("php\conexion.php");
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
 
-    <script>
-    $(document).ready(function(){
+   
+   <script>
 
-    $( "#target" ).submit(function( event ) {
+     function mostrartabla(){
+    
       
-        var username = $("#name").val();
-        var password = $("#password").val();
-        if(username=="" || password==""){
-            $('#myModal').modal('show');
-            event.preventDefault();//Esto es para cancelar el envio
-        }else{
-            alert( "Los datos se enviaran!." );
-        }  
-    });
-    });
-    
+    $("#mostrardatos").load("php/consulta_asignacion.php");    
+}         
+  
+  
+
+     
 
 
-    function SelectRegistro(){
-											
-										}
-    
-    </script>
+   </script>
+   
   </body>
 </html>
