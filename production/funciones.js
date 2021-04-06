@@ -4,8 +4,15 @@
 
 			function SelectRegistro(){
 											id = document.getElementById("tipoequipo").value;
-											
-											if (id == "desktop") {
+											if (id =="nulo") {
+												$("#desktop").hide();
+												$("#laptop").hide();
+												$("#celular").hide();
+												$("#telefono").hide();
+												$("#otros").hide();
+												}
+												
+											else if (id == "desktop") {
 											$("#desktop").show();
 											$("#laptop").hide();
 											$("#celular").hide();

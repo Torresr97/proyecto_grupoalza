@@ -186,7 +186,7 @@ include("php\conexion1.php");
 										<option value="telefono">Telefono</option>
 										<option value="otros">Otros</option>	
                     </select>
-                   
+					
                       </div>
 
                       <button  type="submit" class="btn btn-info"  >Buscar</button></form>

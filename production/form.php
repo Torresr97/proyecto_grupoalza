@@ -9,9 +9,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Gentelella Alela! | </title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 	<!-- Bootstrap -->
-	<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	
 	<!-- Font Awesome -->
 	<link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<!-- NProgress -->
@@ -31,6 +34,7 @@
 
 	<!-- Custom Theme Style -->
 	<link href="../build/css/custom.min.css" rel="stylesheet">
+
 </head>
 
 <body class="nav-md">
@@ -146,10 +150,10 @@
 				<div class="col-md-12 ">
 					<div class="x_panel">
 						<div class="x_title">
-							<h2>Registro Equipo </h2>
-							<ul class="nav navbar-right panel_toolbox">
-							
-							</ul>
+								<h2>Registro Equipo </h2>
+								<ul class="nav navbar-right panel_toolbox">
+								
+								</ul>
 							<div class="clearfix"></div>
 						</div>
 
@@ -158,12 +162,31 @@
 							<br />
 							<form id="formularioregistro" method="POST"  action="php/insertardatos.php" class="form-horizontal form-label-left">
 						
+							<div>
+								<div class="form-group row">
+								<label class="control-label col-md-3 col-sm-3 ">Centro de Distribucion</label>
+								<div class="col-md-4 col-sm-4 ">
+								<select  class="form-control" name="ciudad" id="ciudad">
+									<option value="nulo" >Seleccione un Centro de Distribucion</option>
+										<option value="sps" >SPS</option>
+										<option value="tgu">TGU</option>
+										<option value="celular">Proyesa</option>
+										<option value="nh">Nuevos Horizontes</option>
+										<option value="gralza">Gralza</option>
+									
+									</select>
+									
+									
+								</div>
 							</div>
-							<div class="form-group row">
+
+
+							<div>
+								<div class="form-group row">
 								<label class="control-label col-md-3 col-sm-3 ">Tipo-Equipo</label>
-								<div class="col-md-5 col-sm-5 ">
+								<div class="col-md-4 col-sm-4 ">
 									<select  class="form-control" name="tipoequipo" id="tipoequipo" onclick="SelectRegistro();">
-									<option value="nulo" >Seleccione un Equipo</option>
+										<option value="nulo">Seleccione un Equipo</option>
 										<option value="desktop" >Desktop</option>
 										<option value="laptop">Laptop</option>
 										<option value="celular">Celular</option>
@@ -171,10 +194,14 @@
 										<option value="otros">Otros</option>
 									
 									</select>
-
+									
 									
 								</div>
 							</div>
+
+							
+
+							
 
 							
 
@@ -203,7 +230,12 @@
 										<input id="dservicetag" name="dservicetag" type="text" class="form-control" placeholder="Service Tag">
 									</div>
 								</div>
-
+								<div class="form-group row ">
+									<label class="control-label col-md-3 col-sm-3 ">Procesador</label>
+									<div class="col-md-5 col-sm-5 ">
+										<input id="dprocesador" name="dprocesador" type="text" class="form-control" placeholder="Procesador">
+									</div>
+								</div>
 
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">RAM</label>
@@ -218,6 +250,10 @@
 										<input id="ddiscoduro" name="ddiscoduro" type="number" class="form-control" placeholder="Disco Duro">
 									</div>
 								</div>
+								<div class="custom-control custom-switch">
+								<input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+								<label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+								</div>
 								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
 									</label>
@@ -225,9 +261,17 @@
 										<textarea id="ddescripcion" name="ddescripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
 									</div>
 								</div>
+								
 
 
 							</div>
+							<div class="form-group row">
+									<label class="control-label col-md-3 col-sm-3 ">Estado <span class="required">*</span>
+									</label>
+									<div class="col-md-9 col-sm-9 ">
+									<input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+									</div>
+								</div>
 							<!--FORMULARIO PARA DESKTOP-->
 
 								<!--FORMULARIO PARA LAPTOP-->
@@ -253,7 +297,12 @@
 										<input id="lservicetag" name="lservicetag" type="text" class="form-control" placeholder="Service Tag">
 									</div>
 								</div>
-
+								<div class="form-group row ">
+									<label class="control-label col-md-3 col-sm-3 ">Procesador</label>
+									<div class="col-md-5 col-sm-5 ">
+										<input id="lprocesador" name="lprocesador" type="text" class="form-control" placeholder="Procesador">
+									</div>
+								</div>
 
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">RAM</label>
