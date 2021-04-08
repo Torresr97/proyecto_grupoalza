@@ -1,9 +1,10 @@
 
 
 
+
 			function SelectRegistro(){
 											id = document.getElementById("tipoequipo").value;
-											if (id == "nada") {
+											if (id =="nulo") {
 												$("#desktop").hide();
 												$("#laptop").hide();
 												$("#celular").hide();
@@ -53,7 +54,17 @@
 
 
 
+function validar(obj){
+	var checkbox1=document.getElementById("Checkbox1").checked = false;
+	var	checkbox2=document.getElementById("Checkbox1").checked = false;
+		obj.checked = true;}
 
+		
+if (checkbox1.checked == true) { // si, se ejecuta
+	checkbox2.checked = false; // checkbox 2 se vuelve a false
+	}else if(checkbox2.checked == true){ // es un else, no se ejecuta
+	checkbox1.checked =false;
+	}
 
 
 function validaForm(){

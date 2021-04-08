@@ -53,26 +53,40 @@
 
 					<br />
 
-					 <!-- sidebar menu -->
-					 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>Inventarios</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Grupo Alza <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.php">Registro</a></li>
-                      <li><a href="asignacion.php">Asignacion</a></li>
-                      <li><a href="index.html">Recepcion</a></li>
-                      <li><a href="index3.html">Inventario</a></li>
-                    </ul>
-                  </li>
-                 
-               
-                 
-              </div>
-             
-            </div>
-            <!-- /sidebar menu -->
+					<!-- sidebar menu -->
+					<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+						<div class="menu_section">
+						  <h3>Inventarios</h3>
+						  <ul class="nav side-menu">
+							<li><a><i class="fa fa-home"></i> Grupo Alza SPS <span class="fa fa-chevron-down"></span></a>
+							  <ul class="nav child_menu">
+								<li><a href="form.php">Registro</a></li>
+								<li><a href="index.html">Asignacion</a></li>
+								<li><a href="index2.html">Recepcion</a></li>
+								<li><a href="index3.html">Inventario</a></li>
+							  </ul>
+							</li>
+							<li><a><i class="fa fa-home"></i> Grupo Alza TGU<span class="fa fa-chevron-down"></span></a>
+							  <ul class="nav child_menu">
+								<li><a href="index.html">Registro</a></li>
+								<li><a href="index.html">Asignacion</a></li>
+								<li><a href="index2.html">Recepcion</a></li>
+								<li><a href="index3.html">Inventario</a></li>
+							  </ul>
+							</li>
+							<li><a><i class="fa fa-home"></i> Proyesa <span class="fa fa-chevron-down"></span></a>
+							  <ul class="nav child_menu">
+								<li><a href="index.html">Registro</a></li>
+								<li><a href="index.html">Asignacion</a></li>
+								<li><a href="index2.html">Recepcion</a></li>
+								<li><a href="index3.html">Inventario</a></li>
+							  </ul>
+							</li>
+						   
+						</div>
+					   
+					  </div>
+					<!-- /sidebar menu -->
 
 					<!-- /menu footer buttons -->
 					<div class="sidebar-footer hidden-small">
@@ -153,7 +167,7 @@
 								<div class="form-group row">
 								<label class="control-label col-md-3 col-sm-3 ">Centro de Distribucion</label>
 								<div class="col-md-4 col-sm-4 ">
-								<select  class="form-control"  name="ciudad" id="ciudad" >
+								<select  class="form-control" name="ciudad" id="ciudad">
 									<option value="nulo" >Seleccione un Centro de Distribucion</option>
 										<option value="sps" >SPS</option>
 										<option value="tgu">TGU</option>
@@ -172,8 +186,8 @@
 								<div class="form-group row">
 								<label class="control-label col-md-3 col-sm-3 ">Tipo-Equipo</label>
 								<div class="col-md-4 col-sm-4 ">
-									<select  class="form-control" name="tipoequipo" id="tipoequipo" onclick="SelectRegistro();" >
-										<option value="nada">Seleccione un Equipo</option>
+									<select  class="form-control" name="tipoequipo" id="tipoequipo" onclick="SelectRegistro();">
+										<option value="nulo">Seleccione un Equipo</option>
 										<option value="desktop" >Desktop</option>
 										<option value="laptop">Laptop</option>
 										<option value="celular">Celular</option>
@@ -199,14 +213,14 @@
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input id="dmarca" name="dmarca"  type="text"  class="form-control" placeholder="Marca" required="required">
+										<input id="dmarca" name="dmarca"  type="text"  class="form-control" placeholder="Marca">
 									</div>
 								</div>
 
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input id="dmodelo" name="dmodelo" type="text" class="form-control" placeholder="Modelo" required="required">
+										<input id="dmodelo" name="dmodelo" type="text" class="form-control" placeholder="Modelo">
 									</div>
 								</div>
 
@@ -214,27 +228,27 @@
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input id="dservicetag" name="dservicetag" type="text" class="form-control" placeholder="Service Tag" required="required">
+										<input id="dservicetag" name="dservicetag" type="text" class="form-control" placeholder="Service Tag">
 									</div>
 								</div>
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Procesador</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input id="dprocesador" name="dprocesador" type="text" class="form-control" placeholder="Procesador" required="required">
+										<input id="dprocesador" name="dprocesador" type="text" class="form-control" placeholder="Procesador">
 									</div>
 								</div>
 
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">RAM</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input  id="dram" name="dram" type="number" class="form-control" placeholder="Ram" required="required">
+										<input  id="dram" name="dram" type="number" class="form-control" placeholder="Ram">
 									</div>
 								</div>
 
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Disco Duro</label>
 									<div class="col-md-5 col-sm-5 ">
-										<input id="ddiscoduro" name="ddiscoduro" type="number" class="form-control" placeholder="Disco Duro"required="required">
+										<input id="ddiscoduro" name="ddiscoduro" type="number" class="form-control" placeholder="Disco Duro">
 									</div>
 								</div>
 								
@@ -242,11 +256,11 @@
 									<label class="control-label col-md-3 col-sm-3 ">Estado </label>
 										<div class="col-md-9 col-sm-9  ">
 										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one" type="checkbox" id="checkbox" name="checkbox" value=1>
+										<input class="form-check-input" type="checkbox" id="Checkbox1" onclick="validar(this);" value="option1">
 										<label class="form-check-label" for="inlineCheckbox1">Activo</label>
 										</div>
 										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one " type="checkbox" id="checkbox" name="checkbox"  value=2>
+										<input class="form-check-input" type="checkbox" id="Checkbox2" onclick="validar(this);" value="option2">
 										<label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
 										</div>
 								
@@ -312,21 +326,6 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Estado </label>
-										<div class="col-md-9 col-sm-9  ">
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one" type="checkbox" id="checkbox" name="checkbox" value=1>
-										<label class="form-check-label" for="inlineCheckbox1">Activo</label>
-										</div>
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one " type="checkbox" id="checkbox" name="checkbox"  value=2>
-										<label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
-										</div>
-								
-									
-									</div>
-								</div>
-								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 ">
@@ -361,21 +360,6 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Estado </label>
-										<div class="col-md-9 col-sm-9  ">
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one" type="checkbox" id="checkbox" name="checkbox" value=1>
-										<label class="form-check-label" for="inlineCheckbox1">Activo</label>
-										</div>
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one " type="checkbox" id="checkbox" name="checkbox"  value=2>
-										<label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
-										</div>
-								
-									
-									</div>
-								</div>
-								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 ">
@@ -406,21 +390,6 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Estado </label>
-										<div class="col-md-9 col-sm-9  ">
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one" type="checkbox" id="checkbox" name="checkbox" value=1>
-										<label class="form-check-label" for="inlineCheckbox1">Activo</label>
-										</div>
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one " type="checkbox" id="checkbox" name="checkbox"  value=2>
-										<label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
-										</div>
-								
-									
-									</div>
-								</div>
-								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 ">
@@ -448,21 +417,6 @@
 									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
 									<div class="col-md-5 col-sm-5 ">
 										<input id="omodelo" type="text" class="form-control" placeholder="Modelo">
-									</div>
-								</div>
-								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Estado </label>
-										<div class="col-md-9 col-sm-9  ">
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one" type="checkbox" id="checkbox" name="checkbox" value=1>
-										<label class="form-check-label" for="inlineCheckbox1">Activo</label>
-										</div>
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one " type="checkbox" id="checkbox" name="checkbox"  value=2>
-										<label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
-										</div>
-								
-									
 									</div>
 								</div>
 								<div class="form-group row">
@@ -498,30 +452,11 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
-			$(document).ready(function(){
-				$('#tipoequipo').val('nada').click(); 
-				
-			
-			});
-
-
-
 	
-		let Checked = null;
-		//The class name can vary
-		for (let CheckBox of document.getElementsByClassName('only-one')){
-			CheckBox.onclick = function(){
-			if(Checked!=null){
-			Checked.checked = false;
-			Checked = CheckBox;
-			}
-			Checked = CheckBox;
-		}}
-</script>
+
 	<script type="text/javascript" src="funciones.js">
 		function SelectRegistro();
-		
+		function validar(obj);
 		
 		
 		
