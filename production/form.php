@@ -9,11 +9,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Gentelella Alela! | </title>
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	
 	<!-- Bootstrap -->
 	
 	<!-- Font Awesome -->
@@ -145,248 +145,221 @@
 						</div>
 
 						<!--Formulario  action="php/insertardatos.php"-->
+						
 						<div class="x_content">
 							<br />
-							<form id="formularioregistro" method="POST"   class="form-horizontal form-label-left">
+					<form id="frmselect" action="#" method="POST" class="form-horizontal form-label-left">
 						
-							<div>
+						
 								<div class="form-group row">
-								<label class="control-label col-md-3 col-sm-3 ">Centro de Distribucion</label>
-								<div class="col-md-4 col-sm-4 ">
-								<select  class="form-control"  name="ciudad" id="ciudad" >
-									<option value="nulo" >Seleccione un Centro de Distribucion</option>
-										<option value="sps" >SPS</option>
-										<option value="tgu">TGU</option>
-										<option value="celular">Proyesa</option>
-										<option value="nh">Nuevos Horizontes</option>
-										<option value="gralza">Gralza</option>
-									
-									</select>
-									
-									
+									<label class="control-label col-md-3 col-sm-3 ">Centro de Distribucion</label>
+									<div class="col-md-4 col-sm-4 ">
+										<select  class="form-control"  name="ciudad" id="ciudad" >
+											<option value="nulo" >Seleccione un Centro de Distribucion</option>
+												<option value="SPS" >SPS</option>
+												<option value="TGU">TGU</option>
+												<option value="CELULAR">Proyesa</option>
+												<option value="NUEVOS HORIZONTES">Nuevos Horizontes</option>
+												<option value="GRALZA">Gralza</option>
+											
+										</select>
+										
+										
+									</div>
 								</div>
-							</div>
 
-
-							<div>
-								<div class="form-group row">
-								<label class="control-label col-md-3 col-sm-3 ">Tipo-Equipo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<select  class="form-control" name="tipoequipo" id="tipoequipo" onclick="SelectRegistro();" >
-										<option value="nada">Seleccione un Equipo</option>
-										<option value="desktop" >Desktop</option>
-										<option value="laptop">Laptop</option>
-										<option value="celular">Celular</option>
-										<option value="telefono">Telefono</option>
-										<option value="otros">Otros</option>
-									
-									</select>
-									
-									
-								</div>
-							</div>
-
-							
-
-							
-
-							
 
 						
-							<!--FORMULARIO PARA DESKTOP-->
-							
-							<div id="desktop">
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="dmarca" name="dmarca"  type="text"  class="form-control" placeholder="Marca" required="required">
-									</div>
-								</div>
-
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="dmodelo" name="dmodelo" type="text" class="form-control" placeholder="Modelo" required="required">
-									</div>
-								</div>
-
-
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="dservicetag" name="dservicetag" type="text" class="form-control" placeholder="Service Tag" required="required">
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Procesador</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="dprocesador" name="dprocesador" type="text" class="form-control" placeholder="Procesador" required="required">
-									</div>
-								</div>
-
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">RAM</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input  id="dram" name="dram" type="number" class="form-control" placeholder="Ram" required="required">
-									</div>
-								</div>
-
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Disco Duro</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="ddiscoduro" name="ddiscoduro" type="number" class="form-control" placeholder="Disco Duro"required="required">
-									</div>
-								</div>
-								
 								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Estado </label>
-										<div class="col-md-9 col-sm-9  ">
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one" type="checkbox" id="checkbox" name="checkbox" value=1>
-										<label class="form-check-label" for="inlineCheckbox1">Activo</label>
-										</div>
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one " type="checkbox" id="checkbox" name="checkbox"  value=2>
-										<label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
-										</div>
-								
+									<label class="control-label col-md-3 col-sm-3 ">Tipo-Equipo</label>
+									<div class="col-md-4 col-sm-4 ">
+										<select  class="form-control" name="tipoequipo" id="tipoequipo"  onclick="SelectRegistro();" >
+											<option value="nada">Seleccione un Equipo</option>
+											<option value="desktop" >Desktop</option>
+											<option value="laptop">Laptop</option>
+											<option value="celular">Celular</option>
+											<option value="telefono">Telefono</option>
+											<option value="otros">Otros</option>
+										
+										</select>
 									
 									</div>
 								</div>
-								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
-									</label>
-									<div class="col-md-9 col-sm-9 ">
-										<textarea id="ddescripcion" name="ddescripcion"  class="form-control" rows="3" placeholder="Descripcion"></textarea>
-									</div>
-								</div>
-								
-
-
-							</div>
 							
-						
-							<!--FORMULARIO PARA DESKTOP-->
+						</form>
 
+						
 								<!--FORMULARIO PARA LAPTOP-->
-								<div id="laptop">
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="lmarca" name="lmarca"  type="text"  class="form-control" placeholder="Marca">
-									</div>
-								</div>
-
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="lmodelo" name="lmodelo" type="text" class="form-control" placeholder="Modelo">
-									</div>
-								</div>
-
-
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="lservicetag" name="lservicetag" type="text" class="form-control" placeholder="Service Tag">
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Procesador</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="lprocesador" name="lprocesador" type="text" class="form-control" placeholder="Procesador">
-									</div>
-								</div>
-
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">RAM</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input  id="lram" name="lram" type="number" class="form-control" placeholder="Ram">
-									</div>
-								</div>
-
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Disco Duro</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="ldiscoduro" name="ldiscoduro" type="number" class="form-control" placeholder="Disco Duro">
-									</div>
-								</div>
-								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Estado </label>
-										<div class="col-md-9 col-sm-9  ">
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one" type="checkbox" id="checkbox" name="checkbox" value=1>
-										<label class="form-check-label" for="inlineCheckbox1">Activo</label>
+								<form  method="POST" action="php\insertardatos.php"  class="form-horizontal form-label-left">
+								<div id="frmlaptop">
+									<div class="form-group row ">
+										<label class="control-label col-md-3 col-sm-3 ">Marca</label>
+										<div class="col-md-5 col-sm-5 ">
+											<input id="lmarca" name="lmarca"  type="text"  class="form-control" placeholder="Marca">
 										</div>
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one " type="checkbox" id="checkbox" name="checkbox"  value=2>
-										<label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
+									</div>
+
+									<div class="form-group row ">
+										<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
+										<div class="col-md-5 col-sm-5 ">
+											<input id="lmodelo" name="lmodelo" type="text" class="form-control" placeholder="Modelo">
 										</div>
-								
+									</div>
+									<div class="form-group row ">
+										<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
+										<div class="col-md-5 col-sm-5 ">
+											<input id="lservicetag" name="lservicetag" type="text" class="form-control" placeholder="Service Tag">
+										</div>
+									</div>
+									<div class="form-group row ">
+										<label class="control-label col-md-3 col-sm-3 ">Procesador</label>
+										<div class="col-md-5 col-sm-5 ">
+											<input id="lprocesador" name="lprocesador" type="text" class="form-control" placeholder="Procesador">
+										</div>
+									</div>
+									<div class="form-group row ">
+										<label class="control-label col-md-3 col-sm-3 ">RAM</label>
+										<div class="col-md-5 col-sm-5 ">
+											<input  id="lram" name="lram" type="number" class="form-control" placeholder="Ram">
+										</div>
+									</div>
+									<div class="form-group row ">
+										<label class="control-label col-md-3 col-sm-3 ">Disco Duro</label>
+										<div class="col-md-5 col-sm-5 ">
+											<input id="ldiscoduro" name="ldiscoduro" type="number" class="form-control" placeholder="Disco Duro">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
+										</label>
+										<div class="col-md-9 col-sm-9 ">
+											<textarea id="ldescripcion" name="ldescripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
+										</div>
+									</div>
+									<div class="ln_solid"></div>
+									<div  id="btnlaptop"  class="item form-group">
+											<div  class="col-md-6 col-sm-6 offset-md-3">
+												
+												<button class="btn btn-primary" type="reset">Reset</button>
+												<button type="submit" class="btn btn-success">Submit</button>
+											</div>
+										</div>
 									
-									</div>
-								</div>
-								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
-									</label>
-									<div class="col-md-9 col-sm-9 ">
-										<textarea id="ldescripcion" name="ldescripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
-									</div>
-								</div>
-
-
 							</div>
+							
+							</form>
+							<!--FORMULARIO PARA LAPTOP-->
+
+					<!--FORMULARIO PARA DESKTOP action="php\insertardatos.php"-->
+					
+			<div id="frmdesktop">
+				<form  method="POST"   class="form-horizontal form-label-left">
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Marca</label>
+						<div class="col-md-5 col-sm-5 ">
+							<input id="dmarca" name="dmarca"  type="text"  class="form-control" placeholder="Marca" required="required">
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
+						<div class="col-md-5 col-sm-5 ">
+							<input id="dmodelo" name="dmodelo" type="text" class="form-control" placeholder="Modelo" required="required">
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
+						<div class="col-md-5 col-sm-5 ">
+							<input id="dservicetag" name="dservicetag" type="text" class="form-control" placeholder="Service Tag" required="required">
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Procesador</label>
+						<div class="col-md-5 col-sm-5 ">
+							<input id="dprocesador" name="dprocesador" type="text" class="form-control" placeholder="Procesador" required="required">
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">RAM</label>
+						<div class="col-md-5 col-sm-5 ">
+							<input  id="dram" name="dram" type="number" class="form-control" placeholder="Ram" required="required">
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Disco Duro</label>
+						<div class="col-md-5 col-sm-5 ">
+							<input id="ddiscoduro" name="ddiscoduro" type="number" class="form-control" placeholder="Disco Duro"required="required">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
+						</label>
+						<div class="col-md-9 col-sm-9 ">
+							<textarea id="ddescripcion" name="ddescripcion"  class="form-control" rows="3" placeholder="Descripcion"></textarea>
+						</div>
+					</div>
+					<div class="ln_solid"></div>
+					<div  id="btndesktop"  class="item form-group">
+											<div  class="col-md-6 col-sm-6 offset-md-3">
+												
+												<button class="btn btn-primary" type="reset">Reset</button>
+												<button  id="btnEnviar"  class="btn btn-success" >Submit</button>
+											</div>
+										</div>
+			</div>		
+			
+			</form>
+								<!--FORMULARIO PARA DESKTOP-->		
 
 
+									
 
-<!--FORMULARIO PARA LAPTOP-->
 							<!--FORMULARIO PARA CELULAR-->
-							<div id="celular">
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="cmarca" type="text" class="form-control" placeholder="Marca">
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="cmodelo" type="text" class="form-control" placeholder="Modelo">
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">IMEI</label>
-									<div class="col-md-5 col-sm-5 ">
-										<input id="cimei" name="cimei" type="number" class="form-control" placeholder="Imei">
-									</div>
-								</div>
-								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Estado </label>
-										<div class="col-md-9 col-sm-9  ">
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one" type="checkbox" id="checkbox" name="checkbox" value=1>
-										<label class="form-check-label" for="inlineCheckbox1">Activo</label>
+							
+							<div id="fmrcelular">
+							<form  method="POST" action="php\insertardatos.php"  class="form-horizontal form-label-left">
+									<div class="form-group row ">
+										<label class="control-label col-md-3 col-sm-3 ">Marca</label>
+										<div class="col-md-5 col-sm-5 ">
+											<input id="cmarca" type="text" class="form-control" placeholder="Marca">
 										</div>
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one " type="checkbox" id="checkbox" name="checkbox"  value=2>
-										<label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
+									</div>
+									<div class="form-group row ">
+										<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
+										<div class="col-md-5 col-sm-5 ">
+											<input id="cmodelo" type="text" class="form-control" placeholder="Modelo">
 										</div>
+									</div>
+									<div class="form-group row ">
+										<label class="control-label col-md-3 col-sm-3 ">IMEI</label>
+										<div class="col-md-5 col-sm-5 ">
+											<input id="cimei" name="cimei" type="number" class="form-control" placeholder="Imei">
+										</div>
+									</div>
 								
-									
+									<div class="form-group row">
+										<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
+										</label>
+										<div class="col-md-9 col-sm-9 ">
+											<textarea id="cdescripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
+										</div>
 									</div>
-								</div>
-								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
-									</label>
-									<div class="col-md-9 col-sm-9 ">
-										<textarea id="cdescripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
-									</div>
-								</div>
+									<div class="ln_solid"></div>
+									<div  id="btncelular"  class="item form-group">
+											<div  class="col-md-6 col-sm-6 offset-md-3">
+												
+												<button class="btn btn-primary" type="reset">Reset</button>
+												<button type="submit" class="btn btn-success">Submit</button>
+											</div>
+										</div>
 							</div>
+							
+							</form>
 							<!--FORMULARIO PARA CELULAR-->
 
 							<!--FORMULARIO PARA TELEFONO-->
-							<div id="telefono">
+						
+							<div id="frmtel">
+								<form  method="POST" action="php\insertardatos.php"  class="form-horizontal form-label-left">
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
 									<div class="col-md-5 col-sm-5 ">
@@ -405,21 +378,7 @@
 										<input id="timei" type="number" class="form-control" placeholder="Imei">
 									</div>
 								</div>
-								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Estado </label>
-										<div class="col-md-9 col-sm-9  ">
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one" type="checkbox" id="checkbox" name="checkbox" value=1>
-										<label class="form-check-label" for="inlineCheckbox1">Activo</label>
-										</div>
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one " type="checkbox" id="checkbox" name="checkbox"  value=2>
-										<label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
-										</div>
-								
-									
-									</div>
-								</div>
+							
 								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
 									</label>
@@ -427,11 +386,23 @@
 										<textarea id="tdescripcion" class="form-control" rows="3" placeholder="Descripcion"></textarea>
 									</div>
 								</div>
+								<div class="ln_solid"></div>
+								<div  id="btntel"  class="item form-group">
+											<div  class="col-md-6 col-sm-6 offset-md-3">
+												
+												<button class="btn btn-primary" type="reset">Reset</button>
+												<button type="submit" class="btn btn-success">Submit</button>
+											</div>
+										</div>
 							</div>
+							</form>
+						
 							<!--FORMULARIO PARA TELEFONO-->
 
 							<!--FORMULARIO PARA OTROS-->
-							<div id="otros">
+							
+							<div id="frmotros" action="#" class="frmotros">
+							<form  method="POST"   class="form-horizontal form-label-left">
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Nombre del Equipo</label>
 									<div class="col-md-5 col-sm-5 ">
@@ -450,21 +421,7 @@
 										<input id="omodelo" type="text" class="form-control" placeholder="Modelo">
 									</div>
 								</div>
-								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Estado </label>
-										<div class="col-md-9 col-sm-9  ">
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one" type="checkbox" id="checkbox" name="checkbox" value=1>
-										<label class="form-check-label" for="inlineCheckbox1">Activo</label>
-										</div>
-										<div class="form-check form-check-inline">
-										<input class="form-check-input only-one " type="checkbox" id="checkbox" name="checkbox"  value=2>
-										<label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
-										</div>
 								
-									
-									</div>
-								</div>
 								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Descripcion <span class="required">*</span>
 									</label>
@@ -472,23 +429,26 @@
 										<textarea id="odescripcion"  class="form-control" rows="3" placeholder="Descripcion"></textarea>
 									</div>
 								</div>
+								
+							<div  id="btnotros"  class="item form-group">
+											<div  class="col-md-6 col-sm-6 offset-md-3">
+												
+												<button class="btn btn-primary" type="reset">Reset</button>
+												<button   class="btn btn-success" >Submit</button>
+											</div>
+										</div>
+										
+								
 							</div>
-
+							
+								</form>
+						
 							<!--FORMULARIO PARA OTROS-->
+							
+					
 
 
-								<div class="ln_solid"></div>
-								<div class="form-group">
-									<div class="col-md-9 col-sm-9  offset-md-3">
-										<button type="reset" class="btn btn-primary">Reset</button>
-										<button id="btnguardar" type="submit" class="btn btn-success">Submit</button>
-									</div>
-								</div>
-								<div id=respuesta></div>
-							</form>
-
-
-			</div>
+			
 
 			
 		
@@ -499,26 +459,44 @@
 	</div>
 
 	<script type="text/javascript">
-			$(document).ready(function(){
-				$('#tipoequipo').val('nada').click(); 
-				
 			
-			});
+$(document).ready(function(){
+				$('#tipoequipo').val("nada").click(); 
+				
+			});		
 
-
-
+			$(function() {
+  $("#btnEnviar").click(function(event) {
+    /*Evita que se recargue la página*/
+    event.preventDefault();
+    /* Serializamos en una sola variable ambos formularios*/
+																				var tipoequipo = document.getElementById("tipoequipo").value;
+																				var ciudad = document.getElementById("ciudad").value;
+																				var marca = document.getElementById("dmarca").value;
+																				var modelo = document.getElementById("dmodelo").value;
+																				var servicetag = document.getElementById("dservicetag").value;
+																				var procesador = document.getElementById("dprocesador").value;
+																				var ram = document.getElementById("dram").value;
+																				var discoduro = document.getElementById("ddiscoduro").value;
+																				var descrip = document.getElementById("ddescripcion").value;
 	
-		let Checked = null;
-		//The class name can vary
-		for (let CheckBox of document.getElementsByClassName('only-one')){
-			CheckBox.onclick = function(){
-			if(Checked!=null){
-			Checked.checked = false;
-			Checked = CheckBox;
-			}
-			Checked = CheckBox;
-		}}
+
+	var dataString = 'tipoequipo=' + tipoequipo + '&ciudad=' + ciudad + '&marca=' + marca +'&modelo=' + modelo +'&servicetag=' + servicetag +'&procesador=' + procesador +'&ram=' + ram + '&discoduro=' + discoduro + '&descrip=' + descrip;	
+	$.ajax({
+			type: "POST",
+			url: "php/insertardatos.php",
+			data: dataString,
+            success: function(data) {
+				window.location.reload();
+            }
+        });
+    /*Podemos usar allData para enviarlo por Ajax o lo que sea*/
+  });
+});
+			
+
 </script>
+	
 	<script type="text/javascript" src="funciones.js">
 		function SelectRegistro();
 		
