@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<?php 
+<?php
 include("php\conexion1.php");
 ?>
 <html lang="en">
@@ -12,12 +12,12 @@ include("php\conexion1.php");
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Grupo Alza </title>
-	
-	
+
+
 	<script  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 	<script  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.5/kt-2.6.1/datatables.min.css"/>
- 
+
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 	<link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 	<!-- Bootstrap -->
@@ -54,7 +54,7 @@ include("php\conexion1.php");
 
 					<div class="clearfix"></div>
 
-				
+
 
 					<br />
 
@@ -71,11 +71,11 @@ include("php\conexion1.php");
                       <li><a href="inventario.php">Inventario</a></li>
                     </ul>
                   </li>
-                 
-               
-                 
+
+
+
               </div>
-             
+
             </div>
             <!-- /sidebar menu -->
 
@@ -124,10 +124,10 @@ include("php\conexion1.php");
 							<li role="presentation" class="nav-item dropdown open">
 								<a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
 									<i class="fa fa-envelope-o"></i>
-									
+
 								</a>
 								<ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-								
+
 								</ul>
 							</li>
 						</ul>
@@ -139,33 +139,33 @@ include("php\conexion1.php");
 			<!-- page content -->
 			<!-- page content -->
       <div class="right_col" role="main">
-         
+
         <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Projects <small>Listing design</small></h3>
+                <h3>Asignaciones</h3>
               </div>
 
               <div class="title_right">
               <div class="form-group row">
-								
+
 
 							</div>
               </div>
             </div>
-            
+
           <div class="clearfix"></div>
 
             <div class="row">
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                                      
+
                     <div class="clearfix"></div>
                   </div>
 
 
-                
+
                   <div class="x_content">
 
                    <form method="POST" action= "asignacion.php">
@@ -176,15 +176,15 @@ include("php\conexion1.php");
 										<option value="LAPTOP">Laptop</option>
 										<option value="CELULAR">Celular</option>
 										<option value="TELEFONO">Telefono</option>
-										<option value="OTROS">Otros</option>	
+										<option value="OTROS">Otros</option>
                     </select>
-					
+
                       </div>
 
                       <button  type="submit" class="btn btn-info"  >Buscar</button></form>
 
 
-					
+
 						<div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
@@ -204,13 +204,13 @@ include("php\conexion1.php");
                       </li>
                     </ul>
 
-					
+
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="row">
                       <div class="col-sm-12">
-                       	 	<div class="card-box table-responsive">     
+                       	 	<div class="card-box table-responsive">
 												<?php
 													$nomreequpo=$_POST['tipoequipo'];
 													if($nomreequpo == 'DESKTOP'){
@@ -230,18 +230,18 @@ include("php\conexion1.php");
 																	echo   '</tr>' ;
 																	echo   '</thead>';
 																	echo	'<tbody>';
-																	
+
 																		echo "<tr>";
 																	$sql = "SELECT * FROM V_equiposdesktop  Where estado = 0";
 																	$stmt = sqlsrv_query( $conn, $sql );
 																	if( $stmt === false) {
 																		die( print_r( sqlsrv_errors(), true) );
 																	}
-																	
+
 
 																	while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-																		
-																		
+
+
 																		echo '<td class="id">'.$row['idequipo']."</td>";
 																		echo '<td class="nombreequipo">'.$row['nombreequipo']."</td>";
 																		echo '<td class="marca">'.$row["marca_desktop"]."</td>";
@@ -251,15 +251,15 @@ include("php\conexion1.php");
 																		echo '<td class="ram">'.$row["ram_desktop"]." GB</td>";
 																		echo '<td class="discoduro">'.$row["discoduro_desktop"]." GB</td>";
 																		echo '<td class="descripcion">'.$row["descripcion_desktop"]."</td>";
-																		echo  '<td> <button class="botondesktop btn btn-success btn-xs "  data-toggle="modal" data-target="#modaldedesktop"> <span style="padding-right: 8px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Asignar </button></td>';
-																		
-																			echo "</tr>";    
-																	} 
+																		echo  '<td> <button class="botondesktop btn btn-success btn-xs "  > <span style="padding-right: 8px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Asignar </button></td>';
+
+																			echo "</tr>";
+																	}
 																	echo "</tbody>";
-																	sqlsrv_close( $conn ) ;  
-																	echo "</table>";                     
+																	sqlsrv_close( $conn ) ;
+																	echo "</table>";
 														} 	//FIN DEL SELECT DESKTOP
-														
+
 														if($nomreequpo == 'LAPTOP'){
 															echo '<table id="datatable" class="table table-striped table-bordered" style="width:100%">';
 															echo '<thead>';
@@ -277,18 +277,18 @@ include("php\conexion1.php");
 														echo   '</tr>' ;
 														echo   '</thead>';
 														echo	'<tbody>';
-														
+
 															echo "<tr>";
 														$sql = "SELECT * FROM V_equiposlaptop  Where estado = 0";
 														$stmt = sqlsrv_query( $conn, $sql );
 														if( $stmt === false) {
 															die( print_r( sqlsrv_errors(), true) );
 														}
-														
+
 
 														while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-															
-															
+
+
 															echo '<td class="id">'.$row['idequipo']."</td>";
 															echo '<td class="nombreequipo">'.$row['nombreequipo']."</td>";
 															echo '<td class="marca">'.$row["marca_laptop"]."</td>";
@@ -299,12 +299,12 @@ include("php\conexion1.php");
 															echo '<td class="discoduro">'.$row["discoduro_laptop"]." GB</td>";
 															echo '<td class="descripcion">'.$row["descripcion_laptop"]."</td>";
 															echo  '<td> <button class="botondesktop btn btn-success btn-xs "  data-toggle="modal" data-target="#modaldedesktop"> <span style="padding-right: 8px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Asignar </button></td>';
-															
-																echo "</tr>";    
-														} 
+
+																echo "</tr>";
+														}
 														echo "</tbody>";
-														sqlsrv_close( $conn ) ;  
-														echo "</table>";                     
+														sqlsrv_close( $conn ) ;
+														echo "</table>";
 											} 	// fin del if laptops
 
 
@@ -323,18 +323,18 @@ include("php\conexion1.php");
 														echo   '</tr>' ;
 														echo   '</thead>';
 														echo	'<tbody>';
-														
+
 															echo "<tr>";
 														$sql = "SELECT * FROM V_equiposcelulares  Where estado = 0";
 														$stmt = sqlsrv_query( $conn, $sql );
 														if( $stmt === false) {
 															die( print_r( sqlsrv_errors(), true) );
 														}
-														
-									
+
+
 														while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-															
-															
+
+
 															echo '<td class="id">'.$row['idequipo']."</td>";
 															echo '<td class="nombreequipo">'.$row['nombreequipo']."</td>";
 															echo '<td class="marca">'.$row["marca_cel"]."</td>";
@@ -342,12 +342,12 @@ include("php\conexion1.php");
 															echo '<td class="imei">'.$row["imei_cel"]."</td>";
 															echo '<td class="descripcion">'.$row["descripcion_cel"]."</td>";
 															echo  '<td> <button class="botoncelular btn btn-success btn-xs "  data-toggle="modal" data-target="#modalcelular"> <span style="padding-right: 8px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Asignar </button></td>';
-															
-																echo "</tr>";    
-														} 
+
+																echo "</tr>";
+														}
 														echo "</tbody>";
-														sqlsrv_close( $conn ) ;  
-														echo "</table>";                     
+														sqlsrv_close( $conn ) ;
+														echo "</table>";
 													}// fin del if celular
 
 
@@ -367,18 +367,18 @@ include("php\conexion1.php");
 													echo   '</tr>' ;
 													echo   '</thead>';
 													echo	'<tbody>';
-													
+
 														echo "<tr>";
 													$sql = "SELECT * FROM V_equipostelefonos  Where estado = 0";
 													$stmt = sqlsrv_query( $conn, $sql );
 													if( $stmt === false) {
 														die( print_r( sqlsrv_errors(), true) );
 													}
-													
+
 
 													while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-														
-														
+
+
 														echo '<td class="id">'.$row['idequipo']."</td>";
 														echo '<td class="nombreequipo">'.$row['nombreequipo']."</td>";
 														echo '<td class="marca">'.$row["marca_tel"]."</td>";
@@ -386,12 +386,12 @@ include("php\conexion1.php");
 														echo '<td class="imei">'.$row["imei_tel"]."</td>";
 														echo '<td class="descripcion">'.$row["descripcion_tel"]."</td>";
 														echo  '<td> <button class="botoncelular btn btn-success btn-xs "  data-toggle="modal" data-target="#modalcelular"> <span style="padding-right: 8px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Asignar </button></td>';
-														
-															echo "</tr>";    
-													} 
+
+															echo "</tr>";
+													}
 													echo "</tbody>";
-													sqlsrv_close( $conn ) ;  
-													echo "</table>";                     
+													sqlsrv_close( $conn ) ;
+													echo "</table>";
 												}//fin de if telefono
 
 
@@ -411,18 +411,18 @@ include("php\conexion1.php");
 													echo   '</tr>' ;
 													echo   '</thead>';
 													echo	'<tbody>';
-												
+
 													echo "<tr>";
 												$sql = "SELECT * FROM V_equiposotros where estado = 0";
 												$stmt = sqlsrv_query( $conn, $sql );
 												if( $stmt === false) {
 													die( print_r( sqlsrv_errors(), true) );
 												}
-												
+
 
 												while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-													
-													
+
+
 													echo '<td class="id">'.$row['idequipo']."</td>";
 													echo '<td class="nombreequipo">'.$row['nombreequipo']."</td>";
 													echo '<td class="nombre_otro">'.$row["nombre_otro"]."</td>";
@@ -430,21 +430,21 @@ include("php\conexion1.php");
 													echo '<td class="modelo">'.$row["modelo_otro"]."</td>";
 													echo '<td class="descripcion">'.$row["descripcion_otro"]."</td>";
 													echo  '<td> <button class="botonotros btn btn-success btn-xs "  data-toggle="modal" data-target="#modalotros"> <span style="padding-right: 8px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Asignar </button></td>';
-													
-														echo "</tr>";    
-												} 
+
+														echo "</tr>";
+												}
 												echo "</tbody>";
-												sqlsrv_close( $conn ) ;  
-												echo "</table>";                     
+												sqlsrv_close( $conn ) ;
+												echo "</table>";
 											}//fin de if otros
-										?> 
-    
+										?>
+
     </div>
                     </div>
 
                   </div>
-             
-                 
+
+
                 </div>
               </div>
             </div>
@@ -452,69 +452,269 @@ include("php\conexion1.php");
 
 
 
-        
+
     </div>
 
-				  
-	
+
+
+
+
+
+<!--Modal para Celular y telefonos-->
+<form  id="prueba2" method="POST" action="php/asignaciones/asignacionnuevacelytel.php">
+
+<div  style="heigh" id="modalcelular" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+				  <div style="padding-left: 15px;" class="modal-content">
+
+					<div class="modal-header">
+					  <h4 class="modal-title" id="myModalLabel">Asignacion de Equipo</h4>
+					  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					<div style="display: none;">
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="mcidequipo" name="mcidequipo" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="mcequipo" name="mcequipo" type="text" class="form-control" readonly>
+								</div>
+							</div>
+
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Marca</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="mcmarca" name="mcmarca" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="mcmodelo" name="mcmodelo" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Imei</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="mcimei" name="mcimei" type="text" class="form-control" readonly>
+								</div>
+							</div>
+
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="mcdescripcion" name="mcdescripcion" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							</div>
+
+						</div>
+							<div class="form-group row">
+								<label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
+								<div class="col-md-4 col-sm-4 ">
+									<select  class="form-control"  name="mcempleado" id="mcempleado" >
+										<option value="1" >Seleccione un Empleado</option>
+
+									</select>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Area</label>
+								<div class="col-md-5 col-sm-5 ">
+									<input id="mcarea" name="mcarea" type="text" class="form-control" placeholder="Area">
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
+								<div class="col-md-5 col-sm-5 ">
+									<input id="mcautorizado" name="mcautorizado" type="text" class="form-control" placeholder="Autorizado">
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
+								<div class="col-md-5 col-sm-5 ">
+									<input id="mcentregado" name="mcentregado" type="text" class="form-control" placeholder="Entregado">
+								</div>
+							</div>
+							<div class="modal-footer">
+
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button  type="submit" id="prueba"   class="btn btn-primary btn-xs" >Save changes</button>
+					<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfcelytel()">
+				   </div>
+					</div>
+
+
+				  </div>
+				</div>
+			  </div>
+			  </form>
+			  <!--Modal para Celular y telefonos-->
+
+
+<!--Modal para otros-->
+<form  id="prueba2" method="POST" action="php/asignaciones/asignaciootros.php">
+
+<div  style="heigh" id="modalotros" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+				  <div style="padding-left: 15px;" class="modal-content">
+
+					<div class="modal-header">
+					  <h4 class="modal-title" id="myModalLabel">Asignacion de Equipo</h4>
+					  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					<div style="display: none;">
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="moidequipo" name="moidequipo" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Tipo Equipo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="moequipo" name="moequipo" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="monombreequipo" name="monombreequipo" type="text" class="form-control" readonly>
+								</div>
+							</div>
+
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Marca</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="momarca" name="momarca" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="momodelo" name="momodelo" type="text" class="form-control" readonly>
+								</div>
+							</div>
+
+
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="modescripcion" name="modescripcion" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							</div>
+
+						</div>
+							<div class="form-group row">
+								<label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
+								<div class="col-md-4 col-sm-4 ">
+									<select  class="form-control"  name="mcempleado" id="mcempleado" >
+										<option value="1" >Seleccione un Empleado</option>
+
+									</select>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Area</label>
+								<div class="col-md-5 col-sm-5 ">
+									<input id="oarea" name="oarea" type="text" class="form-control" placeholder="Area">
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
+								<div class="col-md-5 col-sm-5 ">
+									<input id="oautorizado" name="oautorizado" type="text" class="form-control" placeholder="Autorizado">
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
+								<div class="col-md-5 col-sm-5 ">
+									<input id="oentregado" name="oentregado" type="text" class="form-control" placeholder="Entregado">
+								</div>
+							</div>
+							<div class="modal-footer">
+
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button  type="submit" id="prueba"   class="btn btn-primary btn-xs" >Save changes</button>
+					<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfotros()">
+
+				   </div>
+					</div>
+
+
+				  </div>
+				</div>
+			  </div>
+			  </form>
+<!--Modal para otros-->
+
+
 
 <script >
 // variables globales para capturar los datos del Datatable
-var valores="";		
+var id;
+	var nombreequipo ;
+	var marca ;
+	var modelo ;
+	var servicetag; 
+	var procesador ;
+	var ram ;
+	var discoduro; 
+	var descripcion; 
+	
+
+// variables globales para capturar los datos del Datatable
+
+
+var valores="";
 $(document).ready(function() {
     $('#datatable').DataTable();
 	var id = "";
 } );
 
-//boton que despliega el modal obtenemos lo datos de cada fila del datatable 
+//boton que despliega el modal obtenemos lo datos de cada fila del datatable
 
 $(".botondesktop").click(function(){
-	var id = $(this).closest('tr').find('.id').text();  
-	var nombreequipo = $(this).closest('tr').find('.nombreequipo').text();  
-	var marca = $(this).closest('tr').find('.marca').text();  
-	var modelo = $(this).closest('tr').find('.modelo').text();  
-	var servicetag = $(this).closest('tr').find('.servicetag').text();  
-	var procesador = $(this).closest('tr').find('.procesador').text();  
-	var ram = $(this).closest('tr').find('.ram').text();  
-	var discoduro = $(this).closest('tr').find('.discoduro').text(); 
-	var descripcion = $(this).closest('tr').find('.descripcion').text(); 
-	var imei = $(this).closest('tr').find('.imei').text(); 
+	
+	var id = $(this).closest('tr').find('.id').text();
+	var nombreequipo = $(this).closest('tr').find('.nombreequipo').text();
+	var marca = $(this).closest('tr').find('.marca').text();
+	var modelo = $(this).closest('tr').find('.modelo').text();
+	var servicetag = $(this).closest('tr').find('.servicetag').text();
+	var procesador = $(this).closest('tr').find('.procesador').text();
+	var ram = $(this).closest('tr').find('.ram').text();
+	var discoduro = $(this).closest('tr').find('.discoduro').text();
+	var descripcion = $(this).closest('tr').find('.descripcion').text();
+	
 
 	alert(id);
 
-	$.ajax({
-    url:'formularios/formulariopcs.php',
-    data: {id:id},
-    type:'POST',
-    datatype:'json'
-
- })
- .done(function(data, textStatus, jqXHR) {
-
-      alert( "La solicitud se ha completado correctamente." );
-	window.location.href='formularios/formulariopcs.php';
-   })
- .fail(function(jqXHR, textStatus, errorThrown) {
-         alert( "La solicitud a fallado: " +  textStatus)
-  });
-});
+	window.location.href = 'formularios/formulariopcs.php' + '?id=' + id + "&nombreequipo=" + nombreequipo + "&marca=" + marca + 
+	"&modelo=" + modelo + "&servicetag=" + servicetag + "&procesador=" + procesador + "&ram=" + ram + "&discoduro=" + discoduro + "&descripcion=" + descripcion;
+	});
 
 
 
 
 
-
-
-
-//boton que despliega el modal obtenemos lo datos de cada fila del datatable 
+//boton que despliega el modal obtenemos lo datos de cada fila del datatable
 	$(".botoncelular").click(function(){
-	var id = $(this).closest('tr').find('.id').text();  
-	var nombreequipo = $(this).closest('tr').find('.nombreequipo').text();  
-	var marca = $(this).closest('tr').find('.marca').text();  
-	var modelo = $(this).closest('tr').find('.modelo').text();  
-	var imei = $(this).closest('tr').find('.imei').text(); 
-	var descripcion = $(this).closest('tr').find('.descripcion').text(); 
-	
+	var id = $(this).closest('tr').find('.id').text();
+	var nombreequipo = $(this).closest('tr').find('.nombreequipo').text();
+	var marca = $(this).closest('tr').find('.marca').text();
+	var modelo = $(this).closest('tr').find('.modelo').text();
+	var imei = $(this).closest('tr').find('.imei').text();
+	var descripcion = $(this).closest('tr').find('.descripcion').text();
+
 
 	alert(imei);
 
@@ -526,32 +726,32 @@ $(".botondesktop").click(function(){
 	document.getElementById("mcmodelo").value= modelo;
 	document.getElementById("mcimei").value= imei;
 	document.getElementById("mcdescripcion").value= descripcion;
-	
+
 	});
 
-//boton que despliega el modal obtenemos lo datos de cada fila del datatable 
+//boton que despliega el modal obtenemos lo datos de cada fila del datatable
 	$(".botonotros").click(function(){
-	var id = $(this).closest('tr').find('.id').text();  
-	var tippoequipo = $(this).closest('tr').find('.nombreequipo').text();  
-	var nombreequipo = $(this).closest('tr').find('.nombre_otro').text();  
-	var marca = $(this).closest('tr').find('.marca').text();  
-	var modelo = $(this).closest('tr').find('.modelo').text();  
-	var descripcion = $(this).closest('tr').find('.descripcion').text(); 
-	
+	var id = $(this).closest('tr').find('.id').text();
+	var tippoequipo = $(this).closest('tr').find('.nombreequipo').text();
+	var nombreequipo = $(this).closest('tr').find('.nombre_otro').text();
+	var marca = $(this).closest('tr').find('.marca').text();
+	var modelo = $(this).closest('tr').find('.modelo').text();
+	var descripcion = $(this).closest('tr').find('.descripcion').text();
+
 
 	alert(nombreequipo);
 	document.getElementById("moidequipo").value =  id;
 	document.getElementById("moequipo").value =tippoequipo;
 	document.getElementById("monombreequipo").value =nombreequipo;
-	
+
 	document.getElementById("momarca").value = marca;
 	document.getElementById("momodelo").value= modelo;
-	
+
 	document.getElementById("modescripcion").value= descripcion;
-	
+
 	});
 
-	
+
 
 
 
@@ -563,20 +763,20 @@ $(".botondesktop").click(function(){
 		//variables
 
 		//variables
-	
+
 		var doc = new jsPDF();
-			
+
 			var img = new Image;
 			img.onload = function() {
 				doc.addImage(this, 0, 0,210,60);
-				
+
 				window.open(doc.output('bloburl'), '_blank');
 			};
 			img.crossOrigin = "";  // for demo as we are at different origin than image
 			img.src = 'images/logoalza.png';  // some random imgur image
 
 
-			
+
 			doc.setFontSize(20);
 			doc.text(70, 70, 'Asignacion de Equipo');
 
@@ -608,14 +808,14 @@ $(".botondesktop").click(function(){
 			["Ram:", document.getElementById("mram").value],
 			["DiscoDuro:",document.getElementById("mdiscoduro").value],
 			["Nota:",document.getElementById("mdescripcion").value ]];
-			
-		
+
+
 			doc.autoTable(columns,data,{
-				
+
 				 startY: 145,
 				 tableLineColor: [255, 255, 255],
       				tableLineWidth: 0.75,
-					  
+
 				 columnStyles: {
 					0: {
 						columnWidth: 40
@@ -625,9 +825,9 @@ $(".botondesktop").click(function(){
 					}
     				 },
 					 styles: { fontSize: 14 },
-				 
+
 				 theme: 'plain' // 'striped', 'grid' or 'plain'
-				 
+
 		});
 
 
@@ -641,7 +841,7 @@ $(".botondesktop").click(function(){
 		doc.text(10, 275, 'Autorizado por: '+ document.getElementById("mautorizado").value);
 
 
-			
+
 }
 
 
@@ -649,21 +849,21 @@ $(".botondesktop").click(function(){
 function generarpdfcelytel(){
 		//variables
 
-		
-	
+
+
 		var doc = new jsPDF();
-			
+
 			var img = new Image;
 			img.onload = function() {
 				doc.addImage(this, 0, 0,210,60);
-				
+
 				window.open(doc.output('bloburl'), '_blank');
 			};
 			img.crossOrigin = "";  // for demo as we are at different origin than image
 			img.src = 'images/logoalza.png';  // some random imgur image
 
 
-			
+
 			doc.setFontSize(20);
 			doc.text(70, 70, 'Asignacion de Equipo');
 
@@ -689,7 +889,7 @@ function generarpdfcelytel(){
 
 
 
-		
+
 		//variables
 
 			var columns = ["", ""];
@@ -698,14 +898,14 @@ function generarpdfcelytel(){
 			["Modelo:",document.getElementById("mcmodelo").value ],
 			["Imei:", document.getElementById("mcimei").value ],
 			["Nota:",document.getElementById("mcdescripcion").value ]];
-			
-		
+
+
 			doc.autoTable(columns,data,{
-				
+
 				 startY: 145,
 				 tableLineColor: [255, 255, 255],
       				tableLineWidth: 0.75,
-					  
+
 				 columnStyles: {
 					0: {
 						columnWidth: 40
@@ -715,9 +915,9 @@ function generarpdfcelytel(){
 					}
     				 },
 					 styles: { fontSize: 14 },
-				 
+
 				 theme: 'plain' // 'striped', 'grid' or 'plain'
-				 
+
 		});
 
 
@@ -731,7 +931,7 @@ function generarpdfcelytel(){
 		doc.text(10, 275, 'Autorizado por: '+ document.getElementById("mcautorizado").value);
 
 
-			
+
 }
 
 
@@ -740,21 +940,21 @@ function generarpdfcelytel(){
 function generarpdfotros(){
 		//variables
 
-		
-	
+
+
 		var doc = new jsPDF();
-			
+
 			var img = new Image;
 			img.onload = function() {
 				doc.addImage(this, 0, 0,210,60);
-				
+
 				window.open(doc.output('bloburl'), '_blank');
 			};
 			img.crossOrigin = "";  // for demo as we are at different origin than image
 			img.src = 'images/logoalza.png';  // some random imgur image
 
 
-			
+
 			doc.setFontSize(20);
 			doc.text(70, 70, 'Asignacion de Equipo');
 
@@ -779,8 +979,8 @@ function generarpdfotros(){
 
 
 
-	
-		
+
+
 		//variables
 
 			var columns = ["", ""];
@@ -789,14 +989,14 @@ function generarpdfotros(){
 			["Marca:", document.getElementById("momarca").value],
 			["Modelo:",document.getElementById("momodelo").value ],
 			["Nota:",document.getElementById("modescripcion").value ]];
-			
-		
+
+
 			doc.autoTable(columns,data,{
-				
+
 				 startY: 145,
 				 tableLineColor: [255, 255, 255],
       				tableLineWidth: 0.75,
-					  
+
 				 columnStyles: {
 					0: {
 						columnWidth: 40
@@ -806,9 +1006,9 @@ function generarpdfotros(){
 					}
     				 },
 					 styles: { fontSize: 14 },
-				 
+
 				 theme: 'plain' // 'striped', 'grid' or 'plain'
-				 
+
 		});
 
 
@@ -822,7 +1022,7 @@ function generarpdfotros(){
 		doc.text(10, 275, 'Autorizado por: '+ document.getElementById("ocautorizado").value);
 
 
-			
+
 }
 
 
@@ -830,7 +1030,7 @@ function generarpdfotros(){
 </script>
 
 
- 
+
 
 	<!-- jQuery -->
 	<script src="../vendors/jquery/dist/jquery.min.js"></script>
@@ -882,6 +1082,6 @@ function generarpdfotros(){
 
 
 
-  
+
 
 </body></html>
