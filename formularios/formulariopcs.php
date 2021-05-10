@@ -2,6 +2,26 @@
 <!DOCTYPE html>
 <?php
 include("..\php\conexion1.php");
+if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) && isset($_GET["modelo"]) && isset($_GET["servicetag"])
+&& isset($_GET["procesador"])&& isset($_GET["ram"])&& isset($_GET["discoduro"])&& isset($_GET["descripcion"])
+) {
+    // asignar w1 y w2 a dos variables
+    $id = $_GET["id"];
+    $nombreequipo = $_GET["nombreequipo"];
+	$marca = $_GET["marca"];
+	$modelo = $_GET["modelo"];
+	$servicetag = $_GET["servicetag"];
+	$procesador = $_GET["procesador"];
+	$ram = $_GET["ram"];
+	$discoduro = $_GET["discoduro"];
+	$descripcion = $_GET["descripcion"];
+
+    
+} else {
+    echo "<p>No parameters</p>";
+}
+
+
 ?>
 
 
@@ -202,122 +222,127 @@ include("..\php\conexion1.php");
 
 			<div class="clearfix"></div>
 
-			<form class="" action="index.html" method="post">
+		
+					<form class="" action="../php/asignaciones/asignacionnuevadesktopylaptop.php" method="post">
 
-			<div >
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
-									<div class="col-md-4 col-sm-4 ">
-										<input id="midequipo" name="midequipo" type="text" class="form-control" readonly>
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
-									<div class="col-md-4 col-sm-4 ">
-										<input id="mequipo" name="mequipo" type="text" class="form-control" readonly>
-									</div>
-								</div>
+					<div >
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
+						<div class="col-md-4 col-sm-4 ">
+							<input id="midequipo" name="midequipo" value="<?php echo $id ?>" type="text" class="form-control" readonly>
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
+						<div class="col-md-4 col-sm-4 ">
+							<input id="mequipo" name="mequipo" value="<?php echo $nombreequipo ?>" type="text" class="form-control" readonly>
+						</div>
+					</div>
 
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Marca</label>
-									<div class="col-md-4 col-sm-4 ">
-										<input id="mmarca" name="mmarca" type="text" class="form-control" readonly>
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
-									<div class="col-md-4 col-sm-4 ">
-										<input id="mmodelo" name="mmodelo" type="text" class="form-control" readonly>
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
-									<div class="col-md-4 col-sm-4 ">
-										<input id="mservicetag" name="mservicetag" type="text" class="form-control" readonly>
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">procesador</label>
-									<div class="col-md-4 col-sm-4 ">
-										<input id="mprocesador" name="mprocesador" type="text" class="form-control" readonly>
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Ram</label>
-									<div class="col-md-4 col-sm-4 ">
-										<input id="mram" name="mram" type="text" class="form-control" readonly>
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Disco duro</label>
-									<div class="col-md-4 col-sm-4 ">
-										<input id="mdiscoduro" name="mdiscoduro" type="text" class="form-control" readonly>
-									</div>
-								</div>
-								<div class="form-group row ">
-									<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
-									<div class="col-md-4 col-sm-4 ">
-										<input id="mdescripcion" name="mdescripcion" type="text" class="form-control" readonly>
-									</div>
-								</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Marca</label>
+						<div class="col-md-4 col-sm-4 ">
+							<input id="mmarca" name="mmarca" value="<?php echo $marca ?>" type="text" class="form-control" readonly>
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
+						<div class="col-md-4 col-sm-4 ">
+							<input id="mmodelo" name="mmodelo" value="<?php echo $modelo ?>" type="text" class="form-control" readonly>
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
+						<div class="col-md-4 col-sm-4 ">
+							<input id="mservicetag" name="mservicetag" value="<?php echo $servicetag ?>" type="text" class="form-control" readonly>
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">procesador</label>
+						<div class="col-md-4 col-sm-4 ">
+							<input id="mprocesador" name="mprocesador" value="<?php echo $procesador ?>" type="text" class="form-control" readonly>
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Ram</label>
+						<div class="col-md-4 col-sm-4 ">
+							<input id="mram" name="mram" type="text" value="<?php echo $ram ?>" class="form-control" readonly>
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Disco duro</label>
+						<div class="col-md-4 col-sm-4 ">
+							<input id="mdiscoduro" name="mdiscoduro" value="<?php echo $discoduro ?>" type="text" class="form-control" readonly>
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
+						<div class="col-md-4 col-sm-4 ">
+							<input id="mdescripcion" name="mdescripcion" value="<?php echo $descripcion ?>" type="text" class="form-control" readonly>
+						</div>
+					</div>
 
-                								<div class="form-group row">
-                									<label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
-                									<div class="col-md-4 col-sm-4 ">
-                										<select  class="form-control"  name="mempleado" id="mempleado" >
-                										<?php
-                											$sql = "SELECT idempleado,NombreCompleto FROM dbo.inventario_empleado";
-                											$stmt = sqlsrv_query( $conn, $sql );
-                											if( $stmt === false) {
-                												die( print_r( sqlsrv_errors(), true) );
-                											}
-
-
-                											while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+						<div class="form-group row">
+							<label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
+							<div class="col-md-4 col-sm-4 ">
+								<select  class="form-control"  name="mempleado" id="mempleado" >
+								<?php
+									$sql = "SELECT idempleado,NombreCompleto FROM dbo.inventario_empleado order by NombreCompleto ";
+									$stmt = sqlsrv_query( $conn, $sql );
+									if( $stmt === false) {
+										die( print_r( sqlsrv_errors(), true) );
+									}
 
 
-                												echo '<option value="' .$row['idempleado']. '">' .$row['NombreCompleto']. '</option>';
-
-                											}
-
-                											sqlsrv_close( $conn ) ;
-                											?>
-                										</select>
-                									</div>
-                								</div>
-                								<div class="form-group row ">
-                									<label class="control-label col-md-3 col-sm-3 ">Area</label>
-                									<div class="col-md-5 col-sm-5 ">
-                										<input id="marea" name="marea" type="text" class="form-control" placeholder="Area">
-                									</div>
-                								</div>
-                								<div class="form-group row ">
-                									<label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
-                									<div class="col-md-5 col-sm-5 ">
-                										<input id="mautorizado" name="mautorizado" type="text" class="form-control" placeholder="Autorizado">
-                									</div>
-                								</div>
-                								<div class="form-group row ">
-                									<label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
-                									<div class="col-md-5 col-sm-5 ">
-                										<input id="mentregado" name="mentregado" type="text" class="form-control" placeholder="Entregado">
-                									</div>
-                									</div>
-                            
-													<div class="form-group row ">
-                									<label class="control-label col-md-3 col-sm-3 "></label>
-                									<div class="col-md-5 col-sm-5 ">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  <button  type="submit" class="btn btn-primary btn-xs" >Save changes</button>
-                                  <input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfdesktopylaptop()">
-
-                                  </div>
-                									</div>
+									while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
 
 
-								</div>
+										echo '<option value="' .$row['idempleado']. '">' .$row['NombreCompleto']. '</option>';
 
-      </form>
+									}
+
+									sqlsrv_close( $conn ) ;
+									?>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row ">
+							<label class="control-label col-md-3 col-sm-3 ">Area</label>
+							<div class="col-md-5 col-sm-5 ">
+								<input id="marea" name="marea" type="text" class="form-control" placeholder="Area">
+							</div>
+						</div>
+						<div class="form-group row ">
+							<label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
+							<div class="col-md-5 col-sm-5 ">
+								<input id="mautorizado" name="mautorizado" type="text" class="form-control" placeholder="Autorizado">
+							</div>
+						</div>
+						<div class="form-group row ">
+							<label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
+							<div class="col-md-5 col-sm-5 ">
+								<input id="mentregado" name="mentregado" type="text" class="form-control" placeholder="Entregado">
+							</div>
+							</div>
+	
+							<div class="form-group row ">
+							<label class="control-label col-md-3 col-sm-3 "></label>
+							<div class="col-md-5 col-sm-5 ">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button  type="submit" class="btn btn-primary btn-xs" >Save changes</button>
+						<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfdesktopylaptop()">
+
+			</div>
+							</div>
+
+
+		</div>
+
+</form>
+
+						
+
+
 		  </div>
 
 	  </div>
@@ -338,7 +363,7 @@ include("..\php\conexion1.php");
 
 
 
-<script type="text/javascript" src="../formularios">
+<script type="text/javascript" >
 // variables globales para capturar los datos del Datatable
 var valores="";
 $(document).ready(function() {
@@ -368,7 +393,7 @@ $(document).ready(function() {
 				window.open(doc.output('bloburl'), '_blank');
 			};
 			img.crossOrigin = "";  // for demo as we are at different origin than image
-			img.src = 'images/logoalza.png';  // some random imgur image
+			img.src = '../images/logoalza.png';  // some random imgur image
 
 
 
@@ -383,7 +408,7 @@ $(document).ready(function() {
 			doc.text(10,90,newdat);
 			doc.text(10, 105, 'Por medio del presente se hace entrega del Equipo de Computo a: ');
 			doc.setFontType("bold");
-			doc.text(160, 105, document.getElementById("mempleado").value);
+			doc.text(160, 105, document.getElementById("mempleado").);
 			doc.setFontType("normal");
 			doc.text(10, 110, 'quien se desempena en el area de:');
 			doc.setFontType("bold");
@@ -441,184 +466,6 @@ $(document).ready(function() {
 
 
 
-function generarpdfcelytel(){
-		//variables
-
-
-
-		var doc = new jsPDF();
-
-			var img = new Image;
-			img.onload = function() {
-				doc.addImage(this, 0, 0,210,60);
-
-				window.open(doc.output('bloburl'), '_blank');
-			};
-			img.crossOrigin = "";  // for demo as we are at different origin than image
-			img.src = 'images/logoalza.png';  // some random imgur image
-
-
-
-			doc.setFontSize(20);
-			doc.text(70, 70, 'Asignacion de Equipo');
-
-			doc.setFontSize(12);
-			doc.text(10, 80, 'San Pedro Sula');
-			doc.text(10, 85, 'Cortes');
-			var today = new Date();
-			var newdat = today.toDateString(); // "Sun Jun 14 2020";
-			doc.text(10,90,newdat);
-			doc.text(10, 105, 'Por medio del presente se hace entrega del Dispositivo Movil a: ');
-			doc.setFontType("bold");
-			doc.text(160, 105, document.getElementById("mcempleado").value);
-			doc.setFontType("normal");
-			doc.text(10, 110, 'quien se desempena en el area de:');
-			doc.setFontType("bold");
-			doc.text(90, 110, document.getElementById("mcarea").value );
-			doc.setFontType("normal");
-			doc.text(135, 110, '. Se compromete a cumplir ');
-			doc.text(10, 115, 'con las politicas establecidas por el departamento de IT revisadas por Genrecia');
-			doc.text(10, 130, 'Este mismo se compromete a cuidar con la Integridad Fisica del equipo');
-			doc.text(10, 140, 'El equipo cuenta con las siguientes especificaciones');
-
-
-
-
-
-		//variables
-
-			var columns = ["", ""];
-			var data = [
-			["Marca:", document.getElementById("mcmarca").value],
-			["Modelo:",document.getElementById("mcmodelo").value ],
-			["Imei:", document.getElementById("mcimei").value ],
-			["Nota:",document.getElementById("mcdescripcion").value ]];
-
-
-			doc.autoTable(columns,data,{
-
-				 startY: 145,
-				 tableLineColor: [255, 255, 255],
-      				tableLineWidth: 0.75,
-
-				 columnStyles: {
-					0: {
-						columnWidth: 40
-					},
-					1: {
-						columnWidth: 40
-					}
-    				 },
-					 styles: { fontSize: 14 },
-
-				 theme: 'plain' // 'striped', 'grid' or 'plain'
-
-		});
-
-
-		doc.text(10, 245, '_____________________________');
-		doc.text(110, 245, '_____________________________');
-
-		doc.text(10, 252, 'Recibido por: '+ document.getElementById("mcempleado").value);
-		doc.text(110, 252, 'Entregado por: '+ document.getElementById("mcentregado").value);
-		doc.text(10, 270, '_____________________________');
-
-		doc.text(10, 275, 'Autorizado por: '+ document.getElementById("mcautorizado").value);
-
-
-
-}
-
-
-
-
-function generarpdfotros(){
-		//variables
-
-
-
-		var doc = new jsPDF();
-
-			var img = new Image;
-			img.onload = function() {
-				doc.addImage(this, 0, 0,210,60);
-
-				window.open(doc.output('bloburl'), '_blank');
-			};
-			img.crossOrigin = "";  // for demo as we are at different origin than image
-			img.src = 'images/logoalza.png';  // some random imgur image
-
-
-
-			doc.setFontSize(20);
-			doc.text(70, 70, 'Asignacion de Equipo');
-
-			doc.setFontSize(12);
-			doc.text(10, 80, 'San Pedro Sula');
-			doc.text(10, 85, 'Cortes');
-			var today = new Date();
-			var newdat = today.toDateString(); // "Sun Jun 14 2020";
-			doc.text(10,90,newdat);
-			doc.text(10, 105, 'Por medio del presente se hace entrega del Equipo a: ');
-			doc.setFontType("bold");
-			doc.text(160, 105, document.getElementById("mcempleado").value);
-			doc.setFontType("normal");
-			doc.text(10, 110, 'quien se desempena en el area de:');
-			doc.setFontType("bold");
-			doc.text(90, 110, document.getElementById("mcarea").value );
-			doc.setFontType("normal");
-			doc.text(135, 110, '. Se compromete a cumplir ');
-			doc.text(10, 115, 'con las politicas establecidas por el departamento de IT revisadas por Genrecia');
-			doc.text(10, 130, 'Este mismo se compromete a cuidar con la Integridad Fisica del equipo');
-			doc.text(10, 140, 'El equipo cuenta con las siguientes especificaciones');
-
-
-
-
-
-		//variables
-
-			var columns = ["", ""];
-			var data = [
-			["Equipo:", document.getElementById("monombreequipo").value],
-			["Marca:", document.getElementById("momarca").value],
-			["Modelo:",document.getElementById("momodelo").value ],
-			["Nota:",document.getElementById("modescripcion").value ]];
-
-
-			doc.autoTable(columns,data,{
-
-				 startY: 145,
-				 tableLineColor: [255, 255, 255],
-      				tableLineWidth: 0.75,
-
-				 columnStyles: {
-					0: {
-						columnWidth: 40
-					},
-					1: {
-						columnWidth: 40
-					}
-    				 },
-					 styles: { fontSize: 14 },
-
-				 theme: 'plain' // 'striped', 'grid' or 'plain'
-
-		});
-
-
-		doc.text(10, 245, '_____________________________');
-		doc.text(110, 245, '_____________________________');
-
-		doc.text(10, 252, 'Recibido por: '+ document.getElementById("mcempleado").value);
-		doc.text(110, 252, 'Entregado por: '+ document.getElementById("ocentregado").value);
-		doc.text(10, 270, '_____________________________');
-
-		doc.text(10, 275, 'Autorizado por: '+ document.getElementById("ocautorizado").value);
-
-
-
-}
 
 
 
