@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <?php
 include("php\conexion1.php");
@@ -719,13 +720,8 @@ $(".botondesktop").click(function(){
 	alert(imei);
 
 
-
-	document.getElementById("mcidequipo").value =  id;
-	document.getElementById("mcequipo").value =nombreequipo;
-	document.getElementById("mcmarca").value = marca;
-	document.getElementById("mcmodelo").value= modelo;
-	document.getElementById("mcimei").value= imei;
-	document.getElementById("mcdescripcion").value= descripcion;
+	window.location.href = 'formularios/formulariomoviles.php' + '?id=' + id + "&nombreequipo=" + nombreequipo + "&marca=" + marca + 
+	"&modelo=" + modelo + "&imei=" + imei + "&descripcion=" + descripcion ;
 
 	});
 

@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <?php
 include("..\php\conexion1.php");
-if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) && isset($_GET["modelo"]) && isset($_GET["servicetag"])
-&& isset($_GET["procesador"])&& isset($_GET["ram"])&& isset($_GET["discoduro"])&& isset($_GET["descripcion"])
+if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) && isset($_GET["modelo"]) && isset($_GET["imei"])
+&& isset($_GET["descripcion"])
 ) {
     // asignar w1 y w2 a dos variables
     $id = $_GET["id"];
     $nombreequipo = $_GET["nombreequipo"];
 	$marca = $_GET["marca"];
 	$modelo = $_GET["modelo"];
-	$servicetag = $_GET["servicetag"];
-	$procesador = $_GET["procesador"];
-	$ram = $_GET["ram"];
-	$discoduro = $_GET["discoduro"];
+	$imei = $_GET["imei"];
+
 	$descripcion = $_GET["descripcion"];
 
     
@@ -228,58 +226,42 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 					<div class="form-group row ">
 						<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
 						<div class="col-md-4 col-sm-4 ">
-							<input id="midequipo" name="midequipo" value="<?php echo $id ?>" type="text" class="form-control" readonly>
+							<input id="mcidequipo" name="mcidequipo" value="<?php echo $id ?>" type="text" class="form-control" readonly>
 						</div>
 					</div>
 					<div class="form-group row ">
 						<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
 						<div class="col-md-4 col-sm-4 ">
-							<input id="mequipo" name="mequipo" value="<?php echo $nombreequipo ?>" type="text" class="form-control" readonly>
+							<input id="mcequipo" name="mcequipo" value="<?php echo $nombreequipo ?>" type="text" class="form-control" readonly>
 						</div>
 					</div>
 
 					<div class="form-group row ">
 						<label class="control-label col-md-3 col-sm-3 ">Marca</label>
 						<div class="col-md-4 col-sm-4 ">
-							<input id="mmarca" name="mmarca" value="<?php echo $marca ?>" type="text" class="form-control" readonly>
+							<input id="mcmarca" name="mcmarca" value="<?php echo $marca ?>" type="text" class="form-control" readonly>
 						</div>
 					</div>
 					<div class="form-group row ">
 						<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
 						<div class="col-md-4 col-sm-4 ">
-							<input id="mmodelo" name="mmodelo" value="<?php echo $modelo ?>" type="text" class="form-control" readonly>
+							<input id="mcmodelo" name="mcmodelo" value="<?php echo $modelo ?>" type="text" class="form-control" readonly>
 						</div>
 					</div>
 					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
+						<label class="control-label col-md-3 col-sm-3 ">Imei</label>
 						<div class="col-md-4 col-sm-4 ">
-							<input id="mservicetag" name="mservicetag" value="<?php echo $servicetag ?>" type="text" class="form-control" readonly>
-						</div>
-					</div>
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">procesador</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mprocesador" name="mprocesador" value="<?php echo $procesador ?>" type="text" class="form-control" readonly>
-						</div>
-					</div>
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">Ram</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mram" name="mram" type="text" value="<?php echo $ram ?>" class="form-control" readonly>
-						</div>
-					</div>
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">Disco duro</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mdiscoduro" name="mdiscoduro" value="<?php echo $discoduro ?>" type="text" class="form-control" readonly>
+							<input id="mcimei" name="mcimei" value="<?php echo $imei ?>" type="text" class="form-control" readonly>
 						</div>
 					</div>
 					<div class="form-group row ">
 						<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
 						<div class="col-md-4 col-sm-4 ">
-							<input id="mdescripcion" name="mdescripcion" value="<?php echo $descripcion ?>" type="text" class="form-control" readonly>
+							<input id="mcdescripcion" name="mcdescripcion" value="<?php echo $descripcion ?>" type="text" class="form-control" readonly>
 						</div>
 					</div>
+					
+					
 
 						<div class="form-group row">
 							<label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
@@ -339,150 +321,7 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 
 </form>
 
-
-
-
-
-
-
-
 						
-
-
-
-
-<!--Modal para Celular y telefonos-->
-<form  id="prueba2" method="POST" action="php/asignaciones/asignacionnuevacelytel.php">
-
-<div  style="heigh" id="modalcelular" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
-				  <div style="padding-left: 15px;" class="modal-content">
-
-					<div class="modal-header">
-					  <h4 class="modal-title" id="myModalLabel">Asignacion de Equipo</h4>
-					  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-					  </button>
-					</div>
-					<div class="modal-body">
-					<div style="display: none;">
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcidequipo" name="mcidequipo" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcequipo" name="mcequipo" type="text" class="form-control" readonly>
-								</div>
-							</div>
-
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Marca</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcmarca" name="mcmarca" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcmodelo" name="mcmodelo" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Imei</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcimei" name="mcimei" type="text" class="form-control" readonly>
-								</div>
-							</div>
-
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcdescripcion" name="mcdescripcion" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							</div>
-
-						</div>
-							<div class="form-group row">
-								<label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
-								<div class="col-md-4 col-sm-4 ">
-									<select  class="form-control"  name="mcempleado" id="mcempleado" >
-										<option value="1" >Seleccione un Empleado</option>
-
-									</select>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Area</label>
-								<div class="col-md-5 col-sm-5 ">
-									<input id="mcarea" name="mcarea" type="text" class="form-control" placeholder="Area">
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
-								<div class="col-md-5 col-sm-5 ">
-									<input id="mcautorizado" name="mcautorizado" type="text" class="form-control" placeholder="Autorizado">
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
-								<div class="col-md-5 col-sm-5 ">
-									<input id="mcentregado" name="mcentregado" type="text" class="form-control" placeholder="Entregado">
-								</div>
-							</div>
-							<div class="modal-footer">
-
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button  type="submit" id="prueba"   class="btn btn-primary btn-xs" >Save changes</button>
-					<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfcelytel()">
-				   </div>
-					</div>
-
-
-				  </div>
-				</div>
-			  </div>
-			  </form>
-			  <!--Modal para Celular y telefonos-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		  </div>
