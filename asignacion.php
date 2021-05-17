@@ -461,103 +461,6 @@ include("php\conexion1.php");
 
 
 
-<!--Modal para Celular y telefonos-->
-<form  id="prueba2" method="POST" action="php/asignaciones/asignacionnuevacelytel.php">
-
-<div  style="heigh" id="modalcelular" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
-				  <div style="padding-left: 15px;" class="modal-content">
-
-					<div class="modal-header">
-					  <h4 class="modal-title" id="myModalLabel">Asignacion de Equipo</h4>
-					  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-					  </button>
-					</div>
-					<div class="modal-body">
-					<div style="display: none;">
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcidequipo" name="mcidequipo" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcequipo" name="mcequipo" type="text" class="form-control" readonly>
-								</div>
-							</div>
-
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Marca</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcmarca" name="mcmarca" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcmodelo" name="mcmodelo" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Imei</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcimei" name="mcimei" type="text" class="form-control" readonly>
-								</div>
-							</div>
-
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="mcdescripcion" name="mcdescripcion" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							</div>
-
-						</div>
-							<div class="form-group row">
-								<label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
-								<div class="col-md-4 col-sm-4 ">
-									<select  class="form-control"  name="mcempleado" id="mcempleado" >
-										<option value="1" >Seleccione un Empleado</option>
-
-									</select>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Area</label>
-								<div class="col-md-5 col-sm-5 ">
-									<input id="mcarea" name="mcarea" type="text" class="form-control" placeholder="Area">
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
-								<div class="col-md-5 col-sm-5 ">
-									<input id="mcautorizado" name="mcautorizado" type="text" class="form-control" placeholder="Autorizado">
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
-								<div class="col-md-5 col-sm-5 ">
-									<input id="mcentregado" name="mcentregado" type="text" class="form-control" placeholder="Entregado">
-								</div>
-							</div>
-							<div class="modal-footer">
-
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button  type="submit" id="prueba"   class="btn btn-primary btn-xs" >Save changes</button>
-					<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfcelytel()">
-				   </div>
-					</div>
-
-
-				  </div>
-				</div>
-			  </div>
-			  </form>
-			  <!--Modal para Celular y telefonos-->
-
 
 <!--Modal para otros-->
 <form  id="prueba2" method="POST" action="php/asignaciones/asignaciootros.php">
@@ -646,7 +549,7 @@ include("php\conexion1.php");
 
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					<button  type="submit" id="prueba"   class="btn btn-primary btn-xs" >Save changes</button>
-					<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfotros()">
+					<input type="button" class="btn btn-primary" value="Generar Reporte" onclick="generarpdfotros()">
 
 				   </div>
 					</div>
@@ -661,17 +564,7 @@ include("php\conexion1.php");
 
 
 <script >
-// variables globales para capturar los datos del Datatable
-var id;
-	var nombreequipo ;
-	var marca ;
-	var modelo ;
-	var servicetag; 
-	var procesador ;
-	var ram ;
-	var discoduro; 
-	var descripcion; 
-	
+
 
 // variables globales para capturar los datos del Datatable
 
@@ -736,14 +629,8 @@ $(".botondesktop").click(function(){
 
 
 	alert(nombreequipo);
-	document.getElementById("moidequipo").value =  id;
-	document.getElementById("moequipo").value =tippoequipo;
-	document.getElementById("monombreequipo").value =nombreequipo;
-
-	document.getElementById("momarca").value = marca;
-	document.getElementById("momodelo").value= modelo;
-
-	document.getElementById("modescripcion").value= descripcion;
+	window.location.href = 'formularios/formularioOtros.php' + '?id=' + id + "&tipoequipo=" + tippoequipo + "&nombreequipo=" + nombreequipo + "&marca=" + marca + 
+	"&modelo=" + modelo + "&descripcion=" + descripcion ;
 
 	});
 
@@ -752,183 +639,6 @@ $(".botondesktop").click(function(){
 
 
 
-
-//funcion para general el archivo pdf despues de guardar los datos en la base de datos
-
-	function generarpdfdesktopylaptop(){
-		//variables
-
-		//variables
-
-		var doc = new jsPDF();
-
-			var img = new Image;
-			img.onload = function() {
-				doc.addImage(this, 0, 0,210,60);
-
-				window.open(doc.output('bloburl'), '_blank');
-			};
-			img.crossOrigin = "";  // for demo as we are at different origin than image
-			img.src = 'images/logoalza.png';  // some random imgur image
-
-
-
-			doc.setFontSize(20);
-			doc.text(70, 70, 'Asignacion de Equipo');
-
-			doc.setFontSize(12);
-			doc.text(10, 80, 'San Pedro Sula');
-			doc.text(10, 85, 'Cortes');
-			var today = new Date();
-			var newdat = today.toDateString(); // "Sun Jun 14 2020";
-			doc.text(10,90,newdat);
-			doc.text(10, 105, 'Por medio del presente se hace entrega del Equipo de Computo a: ');
-			doc.setFontType("bold");
-			doc.text(160, 105, document.getElementById("mempleado").value);
-			doc.setFontType("normal");
-			doc.text(10, 110, 'quien se desempena en el area de:');
-			doc.setFontType("bold");
-			doc.text(90, 110, document.getElementById("marea").value );
-			doc.setFontType("normal");
-			doc.text(135, 110, '. Se compromete a cumplir ');
-			doc.text(10, 115, 'con las politicas establecidas por el departamento de IT revisadas por Genrecia');
-			doc.text(10, 130, 'Este mismo se compromete a cuidar con la Integridad Fisica del equipo');
-			doc.text(10, 140, 'El equipo cuenta con las siguientes especificaciones');
-
-			var columns = ["", ""];
-			var data = [
-			["Marca:", document.getElementById("mmarca").value],
-			["Modelo:",document.getElementById("mmodelo").value ],
-			["Serie:", document.getElementById("mservicetag").value ],
-			["Procesador:",document.getElementById("mprocesador").value ],
-			["Ram:", document.getElementById("mram").value],
-			["DiscoDuro:",document.getElementById("mdiscoduro").value],
-			["Nota:",document.getElementById("mdescripcion").value ]];
-
-
-			doc.autoTable(columns,data,{
-
-				 startY: 145,
-				 tableLineColor: [255, 255, 255],
-      				tableLineWidth: 0.75,
-
-				 columnStyles: {
-					0: {
-						columnWidth: 40
-					},
-					1: {
-						columnWidth: 40
-					}
-    				 },
-					 styles: { fontSize: 14 },
-
-				 theme: 'plain' // 'striped', 'grid' or 'plain'
-
-		});
-
-
-		doc.text(10, 245, '_____________________________');
-		doc.text(110, 245, '_____________________________');
-
-		doc.text(10, 252, 'Recibido por: '+ document.getElementById("mempleado").value);
-		doc.text(110, 252, 'Entregado por: '+ document.getElementById("mentregado").value);
-		doc.text(10, 270, '_____________________________');
-
-		doc.text(10, 275, 'Autorizado por: '+ document.getElementById("mautorizado").value);
-
-
-
-}
-
-
-
-function generarpdfcelytel(){
-		//variables
-
-
-
-		var doc = new jsPDF();
-
-			var img = new Image;
-			img.onload = function() {
-				doc.addImage(this, 0, 0,210,60);
-
-				window.open(doc.output('bloburl'), '_blank');
-			};
-			img.crossOrigin = "";  // for demo as we are at different origin than image
-			img.src = 'images/logoalza.png';  // some random imgur image
-
-
-
-			doc.setFontSize(20);
-			doc.text(70, 70, 'Asignacion de Equipo');
-
-			doc.setFontSize(12);
-			doc.text(10, 80, 'San Pedro Sula');
-			doc.text(10, 85, 'Cortes');
-			var today = new Date();
-			var newdat = today.toDateString(); // "Sun Jun 14 2020";
-			doc.text(10,90,newdat);
-			doc.text(10, 105, 'Por medio del presente se hace entrega del Dispositivo Movil a: ');
-			doc.setFontType("bold");
-			doc.text(160, 105, document.getElementById("mcempleado").value);
-			doc.setFontType("normal");
-			doc.text(10, 110, 'quien se desempena en el area de:');
-			doc.setFontType("bold");
-			doc.text(90, 110, document.getElementById("mcarea").value );
-			doc.setFontType("normal");
-			doc.text(135, 110, '. Se compromete a cumplir ');
-			doc.text(10, 115, 'con las politicas establecidas por el departamento de IT revisadas por Genrecia');
-			doc.text(10, 130, 'Este mismo se compromete a cuidar con la Integridad Fisica del equipo');
-			doc.text(10, 140, 'El equipo cuenta con las siguientes especificaciones');
-
-
-
-
-
-		//variables
-
-			var columns = ["", ""];
-			var data = [
-			["Marca:", document.getElementById("mcmarca").value],
-			["Modelo:",document.getElementById("mcmodelo").value ],
-			["Imei:", document.getElementById("mcimei").value ],
-			["Nota:",document.getElementById("mcdescripcion").value ]];
-
-
-			doc.autoTable(columns,data,{
-
-				 startY: 145,
-				 tableLineColor: [255, 255, 255],
-      				tableLineWidth: 0.75,
-
-				 columnStyles: {
-					0: {
-						columnWidth: 40
-					},
-					1: {
-						columnWidth: 40
-					}
-    				 },
-					 styles: { fontSize: 14 },
-
-				 theme: 'plain' // 'striped', 'grid' or 'plain'
-
-		});
-
-
-		doc.text(10, 245, '_____________________________');
-		doc.text(110, 245, '_____________________________');
-
-		doc.text(10, 252, 'Recibido por: '+ document.getElementById("mcempleado").value);
-		doc.text(110, 252, 'Entregado por: '+ document.getElementById("mcentregado").value);
-		doc.text(10, 270, '_____________________________');
-
-		doc.text(10, 275, 'Autorizado por: '+ document.getElementById("mcautorizado").value);
-
-
-
-}
 
 
 

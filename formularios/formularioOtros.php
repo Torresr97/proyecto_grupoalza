@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <?php
 include("..\php\conexion1.php");
-if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) && isset($_GET["modelo"]) && isset($_GET["servicetag"])
-&& isset($_GET["procesador"])&& isset($_GET["ram"])&& isset($_GET["discoduro"])&& isset($_GET["descripcion"])
+if (isset($_GET["id"]) && isset($_GET["tipoequipo"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) && isset($_GET["modelo"]) 
+&& isset($_GET["descripcion"])
 ) {
     // asignar w1 y w2 a dos variables
     $id = $_GET["id"];
+    $tipoequipo = $_GET["tipoequipo"];
     $nombreequipo = $_GET["nombreequipo"];
 	$marca = $_GET["marca"];
 	$modelo = $_GET["modelo"];
-	$servicetag = $_GET["servicetag"];
-	$procesador = $_GET["procesador"];
-	$ram = $_GET["ram"];
-	$discoduro = $_GET["discoduro"];
 	$descripcion = $_GET["descripcion"];
 
     
@@ -222,66 +219,55 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 			<div class="clearfix"></div>
 
 		
-					<form class="" action="../php/asignaciones/asignacionnuevadesktopylaptop.php" method="post">
+		<!--Modal para otros-->
+        <form class="" action="../php/asignaciones/asignaciootros.php" method="post">
 
-					<div >
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="midequipo" name="midequipo" value="<?php echo $id ?>" type="text" class="form-control" readonly>
-						</div>
-					</div>
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mequipo" name="mequipo" value="<?php echo $nombreequipo ?>" type="text" class="form-control" readonly>
-						</div>
-					</div>
 
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">Marca</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mmarca" name="mmarca" value="<?php echo $marca ?>" type="text" class="form-control" readonly>
-						</div>
-					</div>
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mmodelo" name="mmodelo" value="<?php echo $modelo ?>" type="text" class="form-control" readonly>
-						</div>
-					</div>
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">Service Tag</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mservicetag" name="mservicetag" value="<?php echo $servicetag ?>" type="text" class="form-control" readonly>
-						</div>
-					</div>
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">procesador</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mprocesador" name="mprocesador" value="<?php echo $procesador ?>" type="text" class="form-control" readonly>
-						</div>
-					</div>
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">Ram</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mram" name="mram" type="text" value="<?php echo $ram ?>" class="form-control" readonly>
-						</div>
-					</div>
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">Disco duro</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mdiscoduro" name="mdiscoduro" value="<?php echo $discoduro ?>" type="text" class="form-control" readonly>
-						</div>
-					</div>
-					<div class="form-group row ">
-						<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
-						<div class="col-md-4 col-sm-4 ">
-							<input id="mdescripcion" name="mdescripcion" value="<?php echo $descripcion ?>" type="text" class="form-control" readonly>
-						</div>
-					</div>
+				  <div>
+					
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="moidequipo" name="moidequipo" value="<?php echo $id ?>" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Tipo Equipo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="moequipo" name="moequipo" value="<?php echo $tipoequipo ?>" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="monombreequipo" name="monombreequipo" value="<?php echo $nombreequipo ?>" type="text" class="form-control" readonly>
+								</div>
+							</div>
 
-						<div class="form-group row">
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Marca</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="momarca" name="momarca" value="<?php echo $marca ?>" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="momodelo" name="momodelo" value="<?php echo $modelo ?>" type="text" class="form-control" readonly>
+								</div>
+							</div>
+
+
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
+								<div class="col-md-4 col-sm-4 ">
+									<input id="modescripcion" name="modescripcion" value="<?php echo $descripcion ?>" type="text" class="form-control" readonly>
+								</div>
+							</div>
+							</div>
+
+					
+                        <div class="form-group row">
 							<label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
 							<div class="col-md-4 col-sm-4 ">
 								<select  class="form-control"  name="mempleado" id="mempleado" >
@@ -305,43 +291,49 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 								</select>
 							</div>
 						</div>
-						<div class="form-group row ">
-							<label class="control-label col-md-3 col-sm-3 ">Area</label>
-							<div class="col-md-5 col-sm-5 ">
-								<input id="marea" name="marea" type="text" class="form-control" placeholder="Area">
-							</div>
-						</div>
-						<div class="form-group row ">
-							<label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
-							<div class="col-md-5 col-sm-5 ">
-								<input id="mautorizado" name="mautorizado" type="text" class="form-control" placeholder="Autorizado">
-							</div>
-						</div>
-						<div class="form-group row ">
-							<label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
-							<div class="col-md-5 col-sm-5 ">
-								<input id="mentregado" name="mentregado" type="text" class="form-control" placeholder="Entregado">
-							</div>
-							</div>
-	
+
+
+
 							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Area</label>
+								<div class="col-md-5 col-sm-5 ">
+									<input id="oarea" name="oarea" type="text" class="form-control" placeholder="Area">
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
+								<div class="col-md-5 col-sm-5 ">
+									<input id="oautorizado" name="oautorizado" type="text" class="form-control" placeholder="Autorizado">
+								</div>
+							</div>
+							<div class="form-group row ">
+								<label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
+								<div class="col-md-5 col-sm-5 ">
+									<input id="oentregado" name="oentregado" type="text" class="form-control" placeholder="Entregado">
+								</div>
+							</div>
+							
+                            <div class="form-group row ">
 							<label class="control-label col-md-3 col-sm-3 "></label>
 							<div class="col-md-5 col-sm-5 ">
 						
 						<button  type="submit" class="btn btn-primary btn-xs" >Save changes</button>
-						<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfdesktopylaptop()">
+						<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfotros()">
 
 			</div>
 							</div>
+				   </div>
+					</div>
 
 
-		</div>
+				  </div>
+			
+			  </form>
+<!--Modal para otros-->
 
-</form>
 
 
-
-
+						
 
 
 		  </div>
@@ -369,7 +361,7 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 var valores="";
 $(document).ready(function() {
     $('#datatable').DataTable();
-	var select = document.getElementById("mempleado"); //El <select>
+	
 } );
 
 //boton que despliega el modal obtenemos lo datos de cada fila del datatable
@@ -378,12 +370,10 @@ $(document).ready(function() {
 	
 
 
-//funcion para general el archivo pdf despues de guardar los datos en la base de datos
-
-	function generarpdfdesktopylaptop(){
+function generarpdfotros(){
 		//variables
 
-		//variables
+
 
 		var doc = new jsPDF();
 
@@ -407,31 +397,31 @@ $(document).ready(function() {
 			var today = new Date();
 			var newdat = today.toDateString(); // "Sun Jun 14 2020";
 			doc.text(10,90,newdat);
-			doc.text(10, 105, 'Por medio del presente se hace entrega del Equipo de Computo a: ');
-			
+			doc.text(10, 105, 'Por medio del presente se hace entrega del Equipo a: ');
 			doc.setFontType("bold");
-			doc.setFontSize(10);
-			doc.text(138, 105,$('select[name="mempleado"] option:selected').text());
-			doc.setFontSize(12);
+			doc.text(160, 105, document.getElementById("mcempleado").value);
 			doc.setFontType("normal");
 			doc.text(10, 110, 'quien se desempena en el area de:');
 			doc.setFontType("bold");
-			doc.text(78, 110, document.getElementById("marea").value );
+			doc.text(90, 110, document.getElementById("mcarea").value );
 			doc.setFontType("normal");
-			doc.text(125, 110, '. Se compromete a cumplir ');
+			doc.text(135, 110, '. Se compromete a cumplir ');
 			doc.text(10, 115, 'con las politicas establecidas por el departamento de IT revisadas por Genrecia');
 			doc.text(10, 130, 'Este mismo se compromete a cuidar con la Integridad Fisica del equipo');
 			doc.text(10, 140, 'El equipo cuenta con las siguientes especificaciones');
 
+
+
+
+
+		//variables
+
 			var columns = ["", ""];
 			var data = [
-			["Marca:", document.getElementById("mmarca").value],
-			["Modelo:",document.getElementById("mmodelo").value ],
-			["Serie:", document.getElementById("mservicetag").value ],
-			["Procesador:",document.getElementById("mprocesador").value ],
-			["Ram:", document.getElementById("mram").value],
-			["DiscoDuro:",document.getElementById("mdiscoduro").value],
-			["Nota:",document.getElementById("mdescripcion").value ]];
+			["Equipo:", document.getElementById("monombreequipo").value],
+			["Marca:", document.getElementById("momarca").value],
+			["Modelo:",document.getElementById("momodelo").value ],
+			["Nota:",document.getElementById("modescripcion").value ]];
 
 
 			doc.autoTable(columns,data,{
@@ -458,17 +448,15 @@ $(document).ready(function() {
 		doc.text(10, 245, '_____________________________');
 		doc.text(110, 245, '_____________________________');
 
-		doc.text(10, 252, 'Recibido por: '+ ($('select[name="mempleado"] option:selected').text()).split(" ",2));
-		doc.text(110, 252, 'Entregado por: '+ document.getElementById("mentregado").value);
+		doc.text(10, 252, 'Recibido por: '+ document.getElementById("mcempleado").value);
+		doc.text(110, 252, 'Entregado por: '+ document.getElementById("ocentregado").value);
 		doc.text(10, 270, '_____________________________');
 
-		doc.text(10, 275, 'Autorizado por: '+ document.getElementById("mautorizado").value);
+		doc.text(10, 275, 'Autorizado por: '+ document.getElementById("ocautorizado").value);
 
 
 
 }
-
-
 
 
 
