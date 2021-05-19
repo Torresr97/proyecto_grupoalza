@@ -15,7 +15,7 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 	$discoduro = $_GET["discoduro"];
 	$descripcion = $_GET["descripcion"];
 
-    
+
 } else {
     echo "<p>No parameters</p>";
 }
@@ -86,10 +86,10 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Grupo Alza <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form.php">Registro</a></li>
-                      <li><a href="asignacion.php">Asignacion</a></li>
-                      <li><a href="recepcion.php">Recepcion</a></li>
-                      <li><a href="inventario.php">Inventario</a></li>
+                      <li><a href="../form.php">Registro</a></li>
+                      <li><a href="../asignacion.php">Asignacion</a></li>
+                      <li><a href="../recepcion.php">Recepcion</a></li>
+                      <li><a href="../inventario.php">Inventario</a></li>
                     </ul>
                   </li>
 
@@ -221,7 +221,7 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 
 			<div class="clearfix"></div>
 
-		
+
 					<form class="" action="../php/asignaciones/asignacionnuevadesktopylaptop.php" method="post">
 
 					<div >
@@ -323,11 +323,11 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 								<input id="mentregado" name="mentregado" type="text" class="form-control" placeholder="Entregado">
 							</div>
 							</div>
-	
+
 							<div class="form-group row ">
 							<label class="control-label col-md-3 col-sm-3 "></label>
 							<div class="col-md-5 col-sm-5 ">
-						
+
 						<button  type="submit" class="btn btn-primary btn-xs" >Save changes</button>
 						<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfdesktopylaptop()">
 
@@ -375,7 +375,7 @@ $(document).ready(function() {
 //boton que despliega el modal obtenemos lo datos de cada fila del datatable
 
 
-	
+
 
 
 //funcion para general el archivo pdf despues de guardar los datos en la base de datos
@@ -408,7 +408,7 @@ $(document).ready(function() {
 			var newdat = today.toDateString(); // "Sun Jun 14 2020";
 			doc.text(10,90,newdat);
 			doc.text(10, 105, 'Por medio del presente se hace entrega del Equipo de Computo a: ');
-			
+
 			doc.setFontType("bold");
 			doc.setFontSize(10);
 			doc.text(138, 105,$('select[name="mempleado"] option:selected').text());

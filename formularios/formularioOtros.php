@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include("..\php\conexion1.php");
-if (isset($_GET["id"]) && isset($_GET["tipoequipo"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) && isset($_GET["modelo"]) 
+if (isset($_GET["id"]) && isset($_GET["tipoequipo"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) && isset($_GET["modelo"])
 && isset($_GET["descripcion"])
 ) {
     // asignar w1 y w2 a dos variables
@@ -12,7 +12,7 @@ if (isset($_GET["id"]) && isset($_GET["tipoequipo"]) && isset($_GET["nombreequip
 	$modelo = $_GET["modelo"];
 	$descripcion = $_GET["descripcion"];
 
-    
+
 } else {
     echo "<p>No parameters</p>";
 }
@@ -157,7 +157,119 @@ if (isset($_GET["id"]) && isset($_GET["tipoequipo"]) && isset($_GET["nombreequip
 			<!-- page content -->
 			<!-- page content -->
 
+      <!--Modal para otros-->
+      <form   method="POST" action="../php/asignaciones/asignaciootros.php">
 
+      <div  style="heigh" id="modalotros" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+      				<div class="modal-dialog modal-lg">
+      				  <div style="padding-left: 15px;" class="modal-content">
+
+      					<div class="modal-header">
+      					  <h4 class="modal-title" id="myModalLabel">Asignacion de Equipo</h4>
+      					  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+      					  </button>
+      					</div>
+      					<div class="modal-body">
+      					<div style="display: none;">
+      							<div class="form-group row ">
+      								<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
+      								<div class="col-md-4 col-sm-4 ">
+      									<input id="moidequipo" name="moidequipo" type="text" class="form-control" readonly>
+      								</div>
+      							</div>
+      							<div class="form-group row ">
+      								<label class="control-label col-md-3 col-sm-3 ">Tipo Equipo</label>
+      								<div class="col-md-4 col-sm-4 ">
+      									<input id="moequipo" name="moequipo" type="text" class="form-control" readonly>
+      								</div>
+      							</div>
+      							<div class="form-group row ">
+      								<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
+      								<div class="col-md-4 col-sm-4 ">
+      									<input id="monombreequipo" name="monombreequipo" type="text" class="form-control" readonly>
+      								</div>
+      							</div>
+
+      							<div class="form-group row ">
+      								<label class="control-label col-md-3 col-sm-3 ">Marca</label>
+      								<div class="col-md-4 col-sm-4 ">
+      									<input id="momarca" name="momarca" type="text" class="form-control" readonly>
+      								</div>
+      							</div>
+      							<div class="form-group row ">
+      								<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
+      								<div class="col-md-4 col-sm-4 ">
+      									<input id="momodelo" name="momodelo" type="text" class="form-control" readonly>
+      								</div>
+      							</div>
+
+
+      							<div class="form-group row ">
+      								<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
+      								<div class="col-md-4 col-sm-4 ">
+      									<input id="modescripcion" name="modescripcion" type="text" class="form-control" readonly>
+      								</div>
+      							</div>
+      							</div>
+
+      						</div>
+                  <div class="form-group row">
+                    <label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
+                    <div class="col-md-4 col-sm-4 ">
+                      <select  class="form-control"  name="mempleado" id="mempleado" >
+                      <?php
+                        $sql = "SELECT idempleado,NombreCompleto FROM dbo.inventario_empleado order by NombreCompleto ";
+                        $stmt = sqlsrv_query( $conn, $sql );
+                        if( $stmt === false) {
+                          die( print_r( sqlsrv_errors(), true) );
+                        }
+
+
+                        while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+
+
+                          echo '<option value="' .$row['idempleado']. '">' .$row['NombreCompleto']. '</option>';
+
+                        }
+
+                        sqlsrv_close( $conn ) ;
+                        ?>
+                      </select>
+                    </div>
+                  </div>
+      							<div class="form-group row ">
+      								<label class="control-label col-md-3 col-sm-3 ">Area</label>
+      								<div class="col-md-5 col-sm-5 ">
+      									<input id="oarea" name="oarea" type="text" class="form-control" placeholder="Area">
+      								</div>
+      							</div>
+      							<div class="form-group row ">
+      								<label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
+      								<div class="col-md-5 col-sm-5 ">
+      									<input id="oautorizado" name="oautorizado" type="text" class="form-control" placeholder="Autorizado">
+      								</div>
+      							</div>
+      							<div class="form-group row ">
+      								<label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
+      								<div class="col-md-5 col-sm-5 ">
+      									<input id="oentregado" name="oentregado" type="text" class="form-control" placeholder="Entregado">
+      								</div>
+      							</div>
+      							<div class="modal-footer">
+
+      					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      					<button  type="submit" id="prueba"   class="btn btn-primary btn-xs" >Save changes</button>
+      					<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfotros()">
+
+      				   </div>
+      					</div>
+
+
+      				  </div>
+      				</div>
+      			  </div>
+      			  </form>
+      <!--Modal para otros-->
 
 
 			<!-- page content -->
@@ -218,122 +330,111 @@ if (isset($_GET["id"]) && isset($_GET["tipoequipo"]) && isset($_GET["nombreequip
 
 			<div class="clearfix"></div>
 
-		
-		<!--Modal para otros-->
-        <form class="" action="../php/asignaciones/asignaciootros.php" method="post">
+
+      <form class="" action="../php/asignaciones/asignaciootros.php" method="post">
+
+      
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
+        <div class="col-md-4 col-sm-4 ">
+          <input id="moidequipo" name="moidequipo" value="<?php echo $id ?>" type="text" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Equipo</label>
+        <div class="col-md-4 col-sm-4 ">
+          <input id="moequipo" name="moequipo" value="<?php echo $tipoequipo ?>" type="text" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Nombre Equipo</label>
+        <div class="col-md-4 col-sm-4 ">
+          <input id="moequipo" name="moequipo" value="<?php echo $nombreequipo ?>" type="text" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Marca</label>
+        <div class="col-md-4 col-sm-4 ">
+          <input id="momarca" name="momarca" value="<?php echo $marca ?>" type="text" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Modelo</label>
+        <div class="col-md-4 col-sm-4 ">
+          <input id="momodelo" name="momodelo" value="<?php echo $modelo ?>" type="text" class="form-control" readonly>
+        </div>
+      </div>
 
 
-				  <div>
-					
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">ID de Equipo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="moidequipo" name="moidequipo" value="<?php echo $id ?>" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Tipo Equipo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="moequipo" name="moequipo" value="<?php echo $tipoequipo ?>" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Equipo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="monombreequipo" name="monombreequipo" value="<?php echo $nombreequipo ?>" type="text" class="form-control" readonly>
-								</div>
-							</div>
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
+        <div class="col-md-4 col-sm-4 ">
+          <input id="m0descripcion" name="m0descripcion" value="<?php echo $descripcion ?>" type="text" class="form-control" readonly>
+        </div>
+      </div>
 
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Marca</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="momarca" name="momarca" value="<?php echo $marca ?>" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Modelo</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="momodelo" name="momodelo" value="<?php echo $modelo ?>" type="text" class="form-control" readonly>
-								</div>
-							</div>
+        <div class="form-group row">
+          <label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
+          <div class="col-md-4 col-sm-4 ">
+            <select  class="form-control"  name="mempleado" id="mempleado" >
+            <?php
+              $sql = "SELECT idempleado,NombreCompleto FROM dbo.inventario_empleado order by NombreCompleto ";
+              $stmt = sqlsrv_query( $conn, $sql );
+              if( $stmt === false) {
+                die( print_r( sqlsrv_errors(), true) );
+              }
 
 
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Descripcion</label>
-								<div class="col-md-4 col-sm-4 ">
-									<input id="modescripcion" name="modescripcion" value="<?php echo $descripcion ?>" type="text" class="form-control" readonly>
-								</div>
-							</div>
-							</div>
-
-					
-                        <div class="form-group row">
-							<label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
-							<div class="col-md-4 col-sm-4 ">
-								<select  class="form-control"  name="mempleado" id="mempleado" >
-								<?php
-									$sql = "SELECT idempleado,NombreCompleto FROM dbo.inventario_empleado order by NombreCompleto ";
-									$stmt = sqlsrv_query( $conn, $sql );
-									if( $stmt === false) {
-										die( print_r( sqlsrv_errors(), true) );
-									}
+              while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
 
 
-									while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+                echo '<option value="' .$row['idempleado']. '">' .$row['NombreCompleto']. '</option>';
+
+              }
+
+              sqlsrv_close( $conn ) ;
+              ?>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row ">
+          <label class="control-label col-md-3 col-sm-3 ">Area</label>
+          <div class="col-md-5 col-sm-5 ">
+            <input id="marea" name="marea" type="text" class="form-control" placeholder="Area">
+          </div>
+        </div>
+        <div class="form-group row ">
+          <label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
+          <div class="col-md-5 col-sm-5 ">
+            <input id="mautorizado" name="mautorizado" type="text" class="form-control" placeholder="Autorizado">
+          </div>
+        </div>
+        <div class="form-group row ">
+          <label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
+          <div class="col-md-5 col-sm-5 ">
+            <input id="mentregado" name="mentregado" type="text" class="form-control" placeholder="Entregado">
+          </div>
+          </div>
+
+          <div class="form-group row ">
+          <label class="control-label col-md-3 col-sm-3 "></label>
+          <div class="col-md-5 col-sm-5 ">
+
+        <button  type="submit" class="btn btn-primary btn-xs" >Save changes</button>
+        <input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfdesktopylaptop()">
+
+  </div>
+          </div>
 
 
-										echo '<option value="' .$row['idempleado']. '">' .$row['NombreCompleto']. '</option>';
+</div>
 
-									}
-
-									sqlsrv_close( $conn ) ;
-									?>
-								</select>
-							</div>
-						</div>
-
-
-
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Area</label>
-								<div class="col-md-5 col-sm-5 ">
-									<input id="oarea" name="oarea" type="text" class="form-control" placeholder="Area">
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Autorizado por:</label>
-								<div class="col-md-5 col-sm-5 ">
-									<input id="oautorizado" name="oautorizado" type="text" class="form-control" placeholder="Autorizado">
-								</div>
-							</div>
-							<div class="form-group row ">
-								<label class="control-label col-md-3 col-sm-3 ">Entregado por</label>
-								<div class="col-md-5 col-sm-5 ">
-									<input id="oentregado" name="oentregado" type="text" class="form-control" placeholder="Entregado">
-								</div>
-							</div>
-							
-                            <div class="form-group row ">
-							<label class="control-label col-md-3 col-sm-3 "></label>
-							<div class="col-md-5 col-sm-5 ">
-						
-						<button  type="submit" class="btn btn-primary btn-xs" >Save changes</button>
-						<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfotros()">
-
-			</div>
-							</div>
-				   </div>
-					</div>
-
-
-				  </div>
-			
-			  </form>
-<!--Modal para otros-->
+</form>
 
 
 
-						
+
 
 
 		  </div>
@@ -345,7 +446,6 @@ if (isset($_GET["id"]) && isset($_GET["tipoequipo"]) && isset($_GET["nombreequip
 
 
 
-</div>
 
 
 
@@ -361,13 +461,13 @@ if (isset($_GET["id"]) && isset($_GET["tipoequipo"]) && isset($_GET["nombreequip
 var valores="";
 $(document).ready(function() {
     $('#datatable').DataTable();
-	
+
 } );
 
 //boton que despliega el modal obtenemos lo datos de cada fila del datatable
 
 
-	
+
 
 
 function generarpdfotros(){
@@ -399,7 +499,7 @@ function generarpdfotros(){
 			doc.text(10,90,newdat);
 			doc.text(10, 105, 'Por medio del presente se hace entrega del Equipo a: ');
 			doc.setFontType("bold");
-			doc.text(160, 105, document.getElementById("mcempleado").value);
+			doc.text(160, 105,$('select[name="mempleado"] option:selected').text());
 			doc.setFontType("normal");
 			doc.text(10, 110, 'quien se desempena en el area de:');
 			doc.setFontType("bold");
@@ -448,7 +548,7 @@ function generarpdfotros(){
 		doc.text(10, 245, '_____________________________');
 		doc.text(110, 245, '_____________________________');
 
-		doc.text(10, 252, 'Recibido por: '+ document.getElementById("mcempleado").value);
+		doc.text(10, 252, 'Recibido por: '+ ($('select[name="mempleado"] option:selected').text()).split(" ",2));
 		doc.text(110, 252, 'Entregado por: '+ document.getElementById("ocentregado").value);
 		doc.text(10, 270, '_____________________________');
 

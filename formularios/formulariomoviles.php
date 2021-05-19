@@ -13,7 +13,7 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 
 	$descripcion = $_GET["descripcion"];
 
-    
+
 } else {
     echo "<p>No parameters</p>";
 }
@@ -219,8 +219,8 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 
 			<div class="clearfix"></div>
 
-		
-					<form class="" action="../php/asignaciones/asignacionnuevadesktopylaptop.php" method="post">
+
+					<form class="" action="../php/asignaciones/asignacionnuevacelytel.php" method="post">
 
 					<div >
 					<div class="form-group row ">
@@ -260,8 +260,8 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 							<input id="mcdescripcion" name="mcdescripcion" value="<?php echo $descripcion ?>" type="text" class="form-control" readonly>
 						</div>
 					</div>
-					
-					
+
+
 
 						<div class="form-group row">
 							<label class="control-label col-md-3 col-sm-3 ">Empleado:</label>
@@ -305,13 +305,13 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 								<input id="mentregado" name="mentregado" type="text" class="form-control" placeholder="Entregado">
 							</div>
 							</div>
-	
+
 							<div class="form-group row ">
 							<label class="control-label col-md-3 col-sm-3 "></label>
 							<div class="col-md-5 col-sm-5 ">
-						
+
 						<button  type="submit" class="btn btn-primary btn-xs" >Save changes</button>
-						<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfdesktopylaptop()">
+						<input type="button" class="btn btn-secondary" value="Generar Reporte" onclick="generarpdfmoviles();">
 
 			</div>
 							</div>
@@ -321,7 +321,7 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 
 </form>
 
-						
+
 
 
 		  </div>
@@ -346,21 +346,21 @@ if (isset($_GET["id"]) && isset($_GET["nombreequipo"]) && isset($_GET["marca"]) 
 
 <script type="text/javascript" >
 // variables globales para capturar los datos del Datatable
-var valores="";
+
 $(document).ready(function() {
     $('#datatable').DataTable();
-	
+
 } );
 
 //boton que despliega el modal obtenemos lo datos de cada fila del datatable
 
 
-	
+
 
 
 //funcion para general el archivo pdf despues de guardar los datos en la base de datos
 
-	function generarpdfdesktopylaptop(){
+	function generarpdfmoviles(){
 		//variables
 
 		//variables
@@ -387,9 +387,9 @@ $(document).ready(function() {
 			var today = new Date();
 			var newdat = today.toDateString(); // "Sun Jun 14 2020";
 			doc.text(10,90,newdat);
-			doc.text(10, 105, 'Por medio del presente se hace entrega del Equipo de Computo a: ');
+			doc.text(10, 105, 'Por medio del presente se hace entrega del Dispositivo Movil a: ');
 			doc.setFontType("bold");
-			doc.text(160, 105, document.getElementById("mempleado").);
+			doc.text(160, 105,$('select[name="mempleado"] option:selected').text());
 			doc.setFontType("normal");
 			doc.text(10, 110, 'quien se desempena en el area de:');
 			doc.setFontType("bold");
@@ -402,13 +402,10 @@ $(document).ready(function() {
 
 			var columns = ["", ""];
 			var data = [
-			["Marca:", document.getElementById("mmarca").value],
-			["Modelo:",document.getElementById("mmodelo").value ],
-			["Serie:", document.getElementById("mservicetag").value ],
-			["Procesador:",document.getElementById("mprocesador").value ],
-			["Ram:", document.getElementById("mram").value],
-			["DiscoDuro:",document.getElementById("mdiscoduro").value],
-			["Nota:",document.getElementById("mdescripcion").value ]];
+			["Marca:", document.getElementById("mcmarca").value ],
+			["Modelo:",document.getElementById("mcmodelo").value ],
+			["Imei:", document.getElementById("mcimei").value ],
+			["Nota:",document.getElementById("mcdescripcion").value ]];
 
 
 			doc.autoTable(columns,data,{
@@ -435,7 +432,7 @@ $(document).ready(function() {
 		doc.text(10, 245, '_____________________________');
 		doc.text(110, 245, '_____________________________');
 
-		doc.text(10, 252, 'Recibido por: '+ document.getElementById("mempleado").value);
+		doc.text(10, 252, 'Recibido por: '+ ($('select[name="mempleado"] option:selected').text()).split(" ",2));
 		doc.text(110, 252, 'Entregado por: '+ document.getElementById("mentregado").value);
 		doc.text(10, 270, '_____________________________');
 
